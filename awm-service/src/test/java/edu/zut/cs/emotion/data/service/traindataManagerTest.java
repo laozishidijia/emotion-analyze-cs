@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.zut.cd.emotion.base.service.GenericGenerator;
-import edu.zut.cs.emotion.admin.damain.traindata;
+import edu.zut.cs.emotion.admin.damain.TrainData;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(classes = traindataConfig.class)
@@ -32,7 +32,7 @@ public class traindataManagerTest extends GenericGenerator {
 				String Sentence2 = DataList[1];
 				int Label = Integer.parseInt(DataList[2]);
 				if(!Sentence1.isEmpty()) {
-				traindata td = new traindata();
+				TrainData td = new TrainData();
 				td.setSentence1(Sentence1);
 				td.setSentence2(Sentence2);
 				td.setLabel(Label);

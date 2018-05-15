@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.zut.cd.emotion.base.service.GenericGenerator;
-import edu.zut.cs.emotion.admin.damain.testdata;
+import edu.zut.cs.emotion.admin.damain.TestData;
 
 public class testdataManagerTest extends GenericGenerator{
 
@@ -30,7 +30,7 @@ public class testdataManagerTest extends GenericGenerator{
 				String Sentence1 = DataList[0];
 				String Sentence2 = DataList[1];
 				if(!Sentence1.isEmpty()) {
-				testdata tsd = new testdata();
+				TestData tsd = new TestData();
 				tsd.setSentence1(Sentence1);
 				tsd.setSentence2(Sentence2);
 				tsd.setEntityName("TestData");
