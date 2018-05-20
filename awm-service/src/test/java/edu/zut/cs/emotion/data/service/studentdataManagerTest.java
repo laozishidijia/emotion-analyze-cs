@@ -46,14 +46,6 @@ public class studentdataManagerTest extends GenericGenerator {
 	} catch (FileNotFoundException e) {
 		System.out.println("Load File Error");
 		e.printStackTrace();
-	}
-	
-	
-}
-	
-	
-	
-	
-		
-	
+	}	
+}	
 }
