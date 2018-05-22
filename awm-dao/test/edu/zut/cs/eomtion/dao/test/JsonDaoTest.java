@@ -3,8 +3,8 @@ package edu.zut.cs.eomtion.dao.test;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.zut.cs.emotion.admin.damain.Json;
 import edu.zut.cs.emotion.admin.dao.JsonDao;
+import edu.zut.cs.emotion.admin.domain.Json;
 import edu.zut.cs.emotion.base.dao.GenericTreeDaoTestCase;
 
 

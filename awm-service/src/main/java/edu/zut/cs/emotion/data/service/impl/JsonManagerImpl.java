@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.zut.cd.emotion.base.service.impl.GenericTreeManagerImpl;
-import edu.zut.cs.emotion.admin.damain.Json;
 import edu.zut.cs.emotion.admin.dao.JsonDao;
+import edu.zut.cs.emotion.admin.domain.Json;
 import edu.zut.cs.emotion.data.service.JsonManager;
 
 @Service("jsonManager")

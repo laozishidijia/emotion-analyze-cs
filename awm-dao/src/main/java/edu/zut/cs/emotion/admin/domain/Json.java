@@ -1,4 +1,4 @@
-package edu.zut.cs.emotion.admin.damain;
+package edu.zut.cs.emotion.admin.domain;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,16 +22,25 @@ public class Json extends BaseTreeEntity<Json>{
 	 * 
 	 */
 	@Column(name="IMAGE_ID")
-	int image_id;
+	long image_id;
 	@Column(name="IMAGE_URL")
 	String image_url;
-	@OneToMany(mappedBy = "json", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "json_object", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
 	Set<MyObject> myObjects=new HashSet<MyObject>();
-	public int getImage_id() {
+	@OneToMany(mappedBy = "json_region", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
+	Set<Region> regions=new HashSet<Region>();
+
+	public long getImage_id() {
 		return image_id;
 	}
-	public void setImage_id(int image_id) {
+	public void setImage_id(long image_id) {
 		this.image_id = image_id;
+	}
+	public Set<Region> getRegions() {
+		return regions;
+	}
+	public void setRegions(Set<Region> regions) {
+		this.regions = regions;
 	}
 	public String getImage_url() {
 		return image_url;

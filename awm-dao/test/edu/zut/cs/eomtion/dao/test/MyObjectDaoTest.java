@@ -3,10 +3,10 @@ package edu.zut.cs.eomtion.dao.test;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.zut.cs.emotion.admin.damain.Json;
-import edu.zut.cs.emotion.admin.damain.MyObject;
 import edu.zut.cs.emotion.admin.dao.JsonDao;
 import edu.zut.cs.emotion.admin.dao.MyObjectDao;
+import edu.zut.cs.emotion.admin.domain.Json;
+import edu.zut.cs.emotion.admin.domain.MyObject;
 import edu.zut.cs.emotion.base.dao.GenericDaoTestCase;
 
 public class MyObjectDaoTest extends GenericDaoTestCase<Long,MyObject,MyObjectDao>{

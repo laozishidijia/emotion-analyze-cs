@@ -1,4 +1,4 @@
-package edu.zut.cs.emotion.admin.damain;
+package edu.zut.cs.emotion.admin.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,15 +15,15 @@ public class MyObject extends BaseEntity{
 	 * 
 	 */
 	private static final long serialVersionUID = 8462412232619290034L;
-	@Column(name="SYNSETS")
+	@Column(name="SYNSETS",columnDefinition="LONGTEXT")
 	String synsets;
 	@Column(name="H")
 	int h;
 	@Column(name="OBJECT_ID")
 	long object_id;
-	@Column(name="MERGED_OBJECT_IDS")
+	@Column(name="MERGED_OBJECT_IDS",columnDefinition="LONGTEXT")
 	String merged_object_ids;
-	@Column(name="NAMES")
+	@Column(name="NAMES",columnDefinition="LONGTEXT")
 	String names;
 	@Column(name="W")
 	int w;
@@ -33,12 +33,16 @@ public class MyObject extends BaseEntity{
 	int x;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "JSON_ID")
-	Json json;
-	public Json getJson() {
-		return json;
+	Json json_object;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Region_ID")
+	Region region_object;
+
+	public Json getJson_object() {
+		return json_object;
 	}
-	public void setJson(Json json) {
-		this.json = json;
+	public void setJson_object(Json json_object) {
+		this.json_object = json_object;
 	}
 	public String getSynsets() {
 		return synsets;
@@ -89,4 +93,11 @@ public class MyObject extends BaseEntity{
 	public void setX(int x) {
 		this.x = x;
 	}
+	public Region getRegion_object() {
+		return region_object;
+	}
+	public void setRegion_object(Region region_object) {
+		this.region_object = region_object;
+	}
+	
 }

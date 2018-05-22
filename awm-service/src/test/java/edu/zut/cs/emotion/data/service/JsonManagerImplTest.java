@@ -12,8 +12,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.zut.cd.emotion.base.service.GenericGenerator;
-import edu.zut.cs.emotion.admin.damain.Json;
-import edu.zut.cs.emotion.admin.damain.MyObject;
+import edu.zut.cs.emotion.admin.domain.Json;
+import edu.zut.cs.emotion.admin.domain.MyObject;
 
 public class JsonManagerImplTest extends GenericGenerator{
 	@Autowired
@@ -31,11 +31,20 @@ public class JsonManagerImplTest extends GenericGenerator{
 		{
 			MyObject myobject=new MyObject();
 			myobject.setX(66);
-			myobject.setJson(j);
+			myobject.setJson_object(j);
 			this.myObjectManager.save(myobject);
 		}
 	}
-	
+	class Much implements Runnable
+	{
+		int begin,end;
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
 	
 	@Test
 	public void testAdd() {
@@ -108,7 +117,7 @@ public class JsonManagerImplTest extends GenericGenerator{
 							}else object.setNames(null);
 							if(object!=null)
 							{
-								object.setJson(json);
+								object.setJson_object(json);
 								this.myObjectManager.save(object);
 							}
 							
