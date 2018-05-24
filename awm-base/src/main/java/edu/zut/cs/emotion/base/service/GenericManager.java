@@ -1,4 +1,4 @@
-package edu.zut.cd.emotion.base.service;
+package edu.zut.cs.emotion.base.service;
 
 import java.io.Serializable;
 import java.util.List;

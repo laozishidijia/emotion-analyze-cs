@@ -1,4 +1,4 @@
-package edu.zut.cd.emotion.base;
+package edu.zut.cs.emotion.base;
 
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 

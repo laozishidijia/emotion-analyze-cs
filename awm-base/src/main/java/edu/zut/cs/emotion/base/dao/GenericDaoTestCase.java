@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.Before;
 import org.springframework.test.context.ContextConfiguration;
 
-import edu.zut.cd.emotion.base.BaseAbstractTestCase;
+import edu.zut.cs.emotion.base.BaseAbstractTestCase;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 
 

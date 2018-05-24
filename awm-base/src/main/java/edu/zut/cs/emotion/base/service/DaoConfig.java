@@ -1,4 +1,4 @@
-package edu.zut.cd.emotion.base.service;
+package edu.zut.cs.emotion.base.service;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

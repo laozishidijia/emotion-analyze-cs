@@ -11,9 +11,9 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.zut.cd.emotion.base.service.GenericGenerator;
 import edu.zut.cs.emotion.admin.domain.Json;
 import edu.zut.cs.emotion.admin.domain.MyObject;
+import edu.zut.cs.emotion.base.service.GenericGenerator;
 
 public class JsonManagerImplTest extends GenericGenerator{
 	@Autowired

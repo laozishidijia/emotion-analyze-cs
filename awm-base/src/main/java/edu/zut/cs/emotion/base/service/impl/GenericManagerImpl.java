@@ -1,4 +1,4 @@
-package edu.zut.cd.emotion.base.service.impl;
+package edu.zut.cs.emotion.base.service.impl;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,9 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.zut.cd.emotion.base.service.GenericManager;
 import edu.zut.cs.emotion.base.dao.GenericDao;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
+import edu.zut.cs.emotion.base.service.GenericManager;
 
 @Transactional
 public class GenericManagerImpl<T extends BaseEntity, PK extends Serializable>
