@@ -25,6 +25,8 @@ public class Json extends BaseTreeEntity<Json>{
 	long image_id;
 	@Column(name="IMAGE_URL")
 	String image_url;
+	@Column(name="QAS_ID")
+	long qas_id;
 	@OneToMany(mappedBy = "json_object", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
 	Set<MyObject> myObjects=new HashSet<MyObject>();
 	@OneToMany(mappedBy = "json_region", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
@@ -32,6 +34,9 @@ public class Json extends BaseTreeEntity<Json>{
 
 	@OneToMany(mappedBy = "json_relationship", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
 	Set<Relationship> relationship = new HashSet<Relationship>();
+
+	@OneToMany(mappedBy = "json_ques", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
+	Set<QUES_AN> ques=new HashSet<QUES_AN>();
 	
 	public Set<Relationship> getRelationship() {
 		return relationship;

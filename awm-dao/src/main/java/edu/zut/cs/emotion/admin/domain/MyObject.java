@@ -26,7 +26,7 @@ public class MyObject extends BaseEntity{
 	@Column(name="NAMES",columnDefinition="LONGTEXT")
 	String names;
 	@Column(name="W")
-	int w;
+	int w;  
 	@Column(name="Y")
 	int y;
 	@Column(name="X")
