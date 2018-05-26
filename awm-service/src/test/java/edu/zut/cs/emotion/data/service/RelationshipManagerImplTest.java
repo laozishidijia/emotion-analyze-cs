@@ -12,12 +12,16 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import edu.zut.cs.emotion.admin.domain.Json;
 import edu.zut.cs.emotion.admin.domain.Relationship;
 import edu.zut.cs.emotion.base.service.GenericGenerator;
 
 public class RelationshipManagerImplTest extends GenericGenerator {
 	@Autowired
 	RelationshipManager relationshipManager;
+	@Autowired
+	JsonManager jsonManager;
+	
 	@Test
 	public void Add_Data() throws IOException, JSONException {
 		List<Relationship> reList =new ArrayList<Relationship>();
@@ -27,7 +31,6 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 			File file =new File("E:\\Visualgenome\\relationships_format\\after_deal\\"+0+".json");
 			String content = FileUtils.readFileToString(file,"UTF-8");
 			try {
-				
 				//----------------提出每条json语句
 				content = FileUtils.readFileToString(file,"UTF-8");
 				String[] relaships = content.split("\"relationships\"");
@@ -37,7 +40,10 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 //					System.out.println(relation);
 					//----------构建json对象
 					JSONObject obj = new JSONObject(relation);
-					int  image_id = obj.getInt("image_id");
+					Json js =new Json();
+					js.setImage_id(obj.getInt("image_id"));
+					jsonManager.save(js);
+					//----------解析relationship
 					JSONArray jArray = obj.getJSONArray("relationships");
 					for(int j=0;j<jArray.length();j++) {
 						try {
@@ -54,12 +60,13 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 						int object_id = obj1.getInt("object_id");
 						int subject_id = obj1.getInt("subject_id");
 						
-						re.setSynset(synset);
+					    re.setSynsets(synset);
 						re.setPredicate(predicate);
 						re.setRelationship_id(relationship_id);
 						re.setObject_id(object_id);
 						re.setSubject_id(subject_id);
-						re.setImage_id(image_id);
+						
+						re.setJson_relationship(js);
 						reList.add(re);
 						if(reList.size()>=200)
 						{
@@ -71,49 +78,12 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							continue;
 						}
 					}
-					JSONArray jArray2 = obj.getJSONArray("objects");
-					for(int j=0;j<jArray2.length();j++) {
-						try {
-						JSONObject obj2 = new JSONObject(jArray2.getJSONObject(j));
-						Relationship re = new Relationship();
-						   String synset="";
-						   JSONArray synsets = obj2.getJSONArray("synsets");
-						if(synsets.length()>1) 
-						{
-						 synset = (String) synsets.get(0);
-						}
-						String names = obj2.getString("names");
-						int h =obj2.getInt("h");
-						int object_id = obj2.getInt("object_id");
-						int w = obj2.getInt("w");
-						int y =obj2.getInt("y");
-						int x =obj2.getInt("x");
-						re.setSynset(synset);
-						re.setNames(names);
-						re.setH(h);
-						re.setW(w);
-						re.setY(y);
-						re.setX(x);
-						re.setImage_id(image_id);
-						reList.add(re);
-						if(reList.size()>=200)
-						{
-							relationshipManager.save(reList);
-						}
-//						System.out.println("[relationship]"+synset+"  "+names+"  "+h+"  "+object_id+"   "+w+"   "+x+"  "+y);
-//						System.out.println("--------------------------------------------");
-						}catch(JSONException jse) {
-							continue;
-						}
 					}
-				 }
-			  }
+				}	
 			}catch (IOException e) {
 				
 				e.printStackTrace();
 			}
-		 
-			
 		}
 	}
 }

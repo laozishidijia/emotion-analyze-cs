@@ -10,7 +10,6 @@ import edu.zut.cs.emotion.base.domain.BaseEntity;
 @Table(name="EMOTION_ANALYZE_RELATIONSHIP")
 @Entity
 public class Relationship extends BaseEntity{
-
 	private static final long serialVersionUID = 1L;
 	
 	private String synsets;
@@ -21,10 +20,32 @@ public class Relationship extends BaseEntity{
 	
 	private long subject_id;
 	
+	private long relationship_id;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "region_relationship")
 	private Region region_relationship;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "json_relationship")
+	private Json json_relationship;
 
+	public Json getJson_relationship() {
+		return json_relationship;
+	}
+
+	public void setJson_relationship(Json json_relationship) {
+		this.json_relationship = json_relationship;
+	}
+
+	public long getRelationship_id() {
+		return relationship_id;
+	}
+
+	public void setRelationship_id(long relationship_id) {
+		this.relationship_id = relationship_id;
+	}
+	
 	public String getSynsets() {
 		return synsets;
 	}
