@@ -28,6 +28,9 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 		
 		for(int i=0;i<=236;i++)
 		{
+			long startTime=System.nanoTime();   //获取开始时间  
+			System.out.println("正在处理第【"+i+"】个文件");
+			
 			File file =new File("E:\\Visualgenome\\relationships_format\\after_deal\\"+0+".json");
 			String content = FileUtils.readFileToString(file,"UTF-8");
 			try {
@@ -84,6 +87,9 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 				
 				e.printStackTrace();
 			}
+			
+			long endTime=System.nanoTime(); //获取结束时间  
+			System.out.println("第"+i+"个文件处理行时间： "+(endTime-startTime)+"ns"); 
 		}
 	}
 }
