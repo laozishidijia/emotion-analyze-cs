@@ -36,7 +36,7 @@ public class Json extends BaseTreeEntity<Json>{
 	Set<Relationship> relationship = new HashSet<Relationship>();
 
 	@OneToMany(mappedBy = "json_ques", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
-	Set<QUES_AN> ques=new HashSet<QUES_AN>();
+	Set<QuestionAn> ques=new HashSet<QuestionAn>();
 	
 	public Set<Relationship> getRelationship() {
 		return relationship;
