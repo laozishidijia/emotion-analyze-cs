@@ -40,7 +40,6 @@ public class JsonManagerImplTest extends GenericGenerator{
 		int begin,end;
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
 			
 		}
 		
