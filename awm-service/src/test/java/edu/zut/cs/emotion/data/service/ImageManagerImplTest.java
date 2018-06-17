@@ -17,7 +17,7 @@ public class ImageManagerImplTest extends GenericGenerator{
 	@Autowired
 	ImageManager imageManager;
 	
-	@Test
+	
 	public void testFindByID()
 	{
 //		Image image=new Image();
@@ -27,6 +27,7 @@ public class ImageManagerImplTest extends GenericGenerator{
 //		this.imageManager.save(image);
 		System.out.println(this.imageManager.findByImage_id(image_id));
 	}
+	@Test
 	public void testAddData()
 	{
 		List<Image> images=new ArrayList<Image>();
