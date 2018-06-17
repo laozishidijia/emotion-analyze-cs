@@ -5,18 +5,19 @@ import org.springframework.stereotype.Component;
 
 import edu.zut.cs.emotion.admin.dao.ImageDao;
 import edu.zut.cs.emotion.admin.domain.Image;
-import edu.zut.cs.emotion.base.service.impl.GenericManagerImpl;
+import edu.zut.cs.emotion.base.service.impl.GenericTreeManagerImpl;
 import edu.zut.cs.emotion.data.service.ImageManager;
 
 @Component
-public class ImageManagerImpl extends GenericManagerImpl<Image,Long> implements ImageManager{
+public class ImageManagerImpl extends GenericTreeManagerImpl<Image,Long> implements ImageManager{
 
 	ImageDao imageDao;
 	
 	@Autowired
 	public void setImageDao(ImageDao imageDao) {
 		this.imageDao = imageDao;
-		this.dao=this.imageDao;
+		this.treeDao=this.imageDao;
+		this.dao=this.treeDao;
 	}
 
 	public Image findByImage_id(Long image_id) {

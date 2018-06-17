@@ -18,6 +18,15 @@ public class ImageManagerImplTest extends GenericGenerator{
 	ImageManager imageManager;
 	
 	@Test
+	public void testFindByID()
+	{
+//		Image image=new Image();
+		Long image_id=(long) 11111;
+//		image.setImage_id(image_id);
+//		image.setUrl("www.baidu.com");
+//		this.imageManager.save(image);
+		System.out.println(this.imageManager.findByImage_id(image_id));
+	}
 	public void testAddData()
 	{
 		List<Image> images=new ArrayList<Image>();
@@ -59,7 +68,7 @@ public class ImageManagerImplTest extends GenericGenerator{
 					image.setImage_id(image_id);
 					images.add(image);
 				}
-				System.out.println("第"+i+"个文件完成");
+				System.out.println("第"+i+"个文件完成!");
 			}
 		}catch (Exception e) {
 			e.printStackTrace();

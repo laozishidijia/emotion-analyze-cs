@@ -4,15 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import edu.zut.cs.emotion.base.domain.BaseEntity;
+import edu.zut.cs.emotion.base.domain.BaseTreeEntity;
 
 @Table(name="EMOTION_ANALYZE_IMAGE")
 @Entity
-public class Image extends BaseEntity{
+public class Image extends BaseTreeEntity<Image>{
 
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	@Column(name="IMAGE_ID")
 	Long image_id;
 	
@@ -77,6 +76,12 @@ public class Image extends BaseEntity{
 
 	public void setFlickr_id(Long flickr_id) {
 		this.flickr_id = flickr_id;
+	}
+
+	@Override
+	public String toString() {
+		return "Image [image_id=" + image_id + ", url=" + url + ", width=" + width + ", height=" + height + ", coco_id="
+				+ coco_id + ", flickr_id=" + flickr_id + "]";
 	} 
 	
 }
