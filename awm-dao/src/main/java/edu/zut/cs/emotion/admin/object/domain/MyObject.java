@@ -10,7 +10,7 @@ import edu.zut.cs.emotion.base.domain.BaseEntity;
 @Entity
 public class MyObject extends BaseEntity{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -1L;
 	
 	@Column(name="SYNSETS")
 	String synsets;

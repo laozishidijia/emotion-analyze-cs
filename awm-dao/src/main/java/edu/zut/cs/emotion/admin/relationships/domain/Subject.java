@@ -2,6 +2,9 @@ package edu.zut.cs.emotion.admin.relationships.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import edu.zut.cs.emotion.base.domain.BaseEntity;
@@ -30,6 +33,26 @@ public class Subject extends BaseEntity {
 	
 	@Column(name = "x")
 	private int x;
+
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "relationshipId",referencedColumnName="relationshipId")
+	Relationship relationship;
+	
+	public Long getObjectId() {
+		return objectId;
+	}
+
+	public void setObjectId(Long objectId) {
+		this.objectId = objectId;
+	}
+
+	public Relationship getRelationship() {
+		return relationship;
+	}
+
+	public void setRelationship(Relationship relationship) {
+		this.relationship = relationship;
+	}
 
 	public String getName() {
 		return name;

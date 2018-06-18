@@ -1,9 +1,16 @@
 package edu.zut.cs.emotion.admin.domain;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.base.domain.BaseTreeEntity;
 
 @Table(name="EMOTION_ANALYZE_IMAGE")
@@ -29,6 +36,9 @@ public class Image extends BaseTreeEntity<Image>{
 	
 	@Column(name="FLICKR_ID")
 	Long flickr_id;
+	
+	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	Set<Relationship> relationships;
 
 	public Long getImage_id() {
 		return image_id;

@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
@@ -25,7 +26,31 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 	MyObjectManager myobjectManager;
 	@Autowired
 	SubjectManager subjectManager;
-
+	@Autowired
+	ImageManager imageManager;
+//-----调用异步线程
+	 @Async("taskExecutor")
+	 public void saveObject(MyObjectManager myobjectManager,MyObject myObject)
+	 {
+		     System.out.println("任务---------------------1");
+		     long start = System.currentTimeMillis();
+		 	myobjectManager.save(myObject);
+			long end = System.currentTimeMillis();
+			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
+			 System.out.println("-----------------------------------------------------");
+	 }
+	 
+	 @Async("taskExecutor")
+	 public void savesubject(SubjectManager subjectManager,Subject subject)
+	 {
+		     System.out.println("任务---------------------2");
+		     long start = System.currentTimeMillis();
+		     subjectManager.save(subject);
+			long end = System.currentTimeMillis();
+			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
+			 System.out.println("-----------------------------------------------------");
+	 }
+	
 	@Test
 	public void add_Data() throws IOException {
 		for (int i = 1; i < 2311; i++) {
@@ -39,6 +64,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 						System.out.println(relation);
 						// ----------------构建json对象
 						JSONObject object = new JSONObject(relation);
+						Long imageId = object.getLong("image_id");
 						JSONArray jArray = object.getJSONArray("relationships");
 						for (int j = 0; j < jArray.length(); j++) {
 							JSONObject object1 = jArray.getJSONObject(j);
@@ -81,6 +107,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							subject.setW(childObject2.getInt("w"));
 							subject.setY(childObject2.getInt("y"));
 							subject.setX(childObject2.getInt("x"));
+							subject.setRelationship(relationshipManager.findByRelationshipId(object1.getLong("relationship_id")));
 
 							String synsetsMain = "";
 							JSONArray mainSynsets = object1.getJSONArray("synsets");
@@ -97,9 +124,11 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							relationship.setRelationshipId(object1.getLong("relationship_id"));
 							relationship.setSynsets(synsetsMain);
 							relationship.setSubject(subject);
-							myobjectManager.save(myObject);
-							subjectManager.save(subject);
-							relationshipManager.save(relationship);
+							relationship.setImage(imageManager.findById(imageId));
+							//------用线程保存
+							saveObject(myobjectManager, myObject);
+							savesubject(subjectManager, subject);
+//							relationshipManager.save(relationship);
 
 						}
 					}
