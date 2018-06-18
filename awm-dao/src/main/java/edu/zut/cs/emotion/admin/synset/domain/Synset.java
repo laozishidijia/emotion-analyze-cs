@@ -12,7 +12,7 @@ public class Synset extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="ENTITY_NAME")
+	@Column(name="SYNSET_ENTITY_NAME")
 	String entity_name;
 	
 	@Column(name="SYNSET_NAME")

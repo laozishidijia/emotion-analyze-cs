@@ -1,8 +1,6 @@
 package edu.zut.cs.emotion.data.service;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
@@ -30,7 +28,6 @@ public class ImageManagerImplTest extends GenericGenerator{
 	@Test
 	public void testAddData()
 	{
-		List<Image> images=new ArrayList<Image>();
 		try {
 			for(int i=1;i<58;i++) {
 				File file=new File("G:\\Java\\ServerFiles\\image_data\\complete\\"+i+".json");
@@ -67,14 +64,12 @@ public class ImageManagerImplTest extends GenericGenerator{
 					image.setUrl(url);
 					image.setHeight(height);
 					image.setImage_id(image_id);
-					images.add(image);
+					this.imageManager.save(image);
 				}
 				System.out.println("第"+i+"个文件完成!");
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
-		}finally {
-			this.imageManager.save(images);
 		}
 	}
 }
