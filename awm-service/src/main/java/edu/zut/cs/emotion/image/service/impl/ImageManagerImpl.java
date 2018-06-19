@@ -1,12 +1,12 @@
-package edu.zut.cs.emotion.data.service.impl;
+package edu.zut.cs.emotion.image.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import edu.zut.cs.emotion.admin.dao.ImageDao;
-import edu.zut.cs.emotion.admin.domain.Image;
+import edu.zut.cs.emotion.admin.image.dao.ImageDao;
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.base.service.impl.GenericTreeManagerImpl;
-import edu.zut.cs.emotion.data.service.ImageManager;
+import edu.zut.cs.emotion.image.service.ImageManager;
 
 @Component
 public class ImageManagerImpl extends GenericTreeManagerImpl<Image,Long> implements ImageManager{

@@ -14,7 +14,8 @@ import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.admin.relationships.domain.Subject;
 import edu.zut.cs.emotion.base.service.GenericGenerator;
-import edu.zut.cs.emotion.data.object.service.MyObjectManager;
+import edu.zut.cs.emotion.image.service.ImageManager;
+import edu.zut.cs.emotion.object.service.MyObjectManager;
 import edu.zut.cs.emotion.relationships.service.RelationshipManager;
 import edu.zut.cs.emotion.relationships.service.SubjectManager;
 

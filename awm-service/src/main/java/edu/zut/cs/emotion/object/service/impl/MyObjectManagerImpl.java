@@ -1,4 +1,4 @@
-package edu.zut.cs.emotion.data.object.service.impl;
+package edu.zut.cs.emotion.object.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import edu.zut.cs.emotion.admin.object.dao.MyObjectDao;
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.base.service.impl.GenericManagerImpl;
-import edu.zut.cs.emotion.data.object.service.MyObjectManager;
+import edu.zut.cs.emotion.object.service.MyObjectManager;
 
 @Component
 public class MyObjectManagerImpl extends GenericManagerImpl<MyObject,Long> implements MyObjectManager{

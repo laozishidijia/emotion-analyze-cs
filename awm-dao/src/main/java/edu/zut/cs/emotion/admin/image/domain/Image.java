@@ -1,4 +1,4 @@
-package edu.zut.cs.emotion.admin.domain;
+package edu.zut.cs.emotion.admin.image.domain;
 
 import java.util.Set;
 
@@ -6,10 +6,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import edu.zut.cs.emotion.admin.region.domain.Region;
 import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.base.domain.BaseTreeEntity;
 
@@ -39,7 +39,10 @@ public class Image extends BaseTreeEntity<Image>{
 	
 	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	Set<Relationship> relationships;
-
+	
+	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	Set<Region> regions; 
+	
 	public Long getImage_id() {
 		return image_id;
 	}

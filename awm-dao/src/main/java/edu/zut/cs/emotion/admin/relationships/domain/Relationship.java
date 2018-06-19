@@ -3,14 +3,12 @@ package edu.zut.cs.emotion.admin.relationships.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
 import javax.persistence.Table;
 
-import edu.zut.cs.emotion.admin.domain.Image;
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 @Table(name="EMOTION_ANALYZE_RELATIONSHIP")
@@ -26,8 +24,8 @@ public class Relationship extends BaseEntity{
 	@Column(name="predicate")
 	String predicate;
 	
-	 @OneToOne
-     @JoinColumn(name="OBJECT_ID")
+	@OneToOne
+    @JoinColumn(name="OBJECT_ID")
 	MyObject myObject;
 	
 	@Column(name="relationshipId")
