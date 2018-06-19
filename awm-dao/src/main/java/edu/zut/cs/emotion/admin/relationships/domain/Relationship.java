@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
+import edu.zut.cs.emotion.admin.region.domain.Region;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 @Table(name="EMOTION_ANALYZE_RELATIONSHIP")
 @Entity
@@ -36,6 +37,21 @@ public class Relationship extends BaseEntity{
 	
 	@OneToOne(mappedBy="relationship")
 	Subject subject;
+	
+	@Column(name="SUBJECT_ID")
+	Long subject_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "REGION_ID")
+	Region relationship_region;
+
+	public Region getRelationship_region() {
+		return relationship_region;
+	}
+
+	public void setRelationship_region(Region relationship_region) {
+		this.relationship_region = relationship_region;
+	}
 
 	public Image getImage() {
 		return image;
@@ -83,5 +99,13 @@ public class Relationship extends BaseEntity{
 
 	public void setSubject(Subject subject) {
 		this.subject = subject;
+	}
+
+	public Long getSubject_id() {
+		return subject_id;
+	}
+
+	public void setSubject_id(Long subject_id) {
+		this.subject_id = subject_id;
 	}
 }

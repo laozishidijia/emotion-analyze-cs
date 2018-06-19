@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import edu.zut.cs.emotion.admin.image.domain.Image;
+import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.admin.synset.domain.Synset;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
@@ -48,6 +49,9 @@ public class Region extends BaseEntity{
 	
 	@OneToMany(mappedBy = "synset_region", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	Set<Synset> synsets;
+	
+	@OneToMany(mappedBy = "myObject_region", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	Set<MyObject> myObjects;
 	
 	public Long getRegion_id() {
 		return region_id;
