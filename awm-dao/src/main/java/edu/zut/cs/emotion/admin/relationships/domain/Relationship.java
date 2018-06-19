@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
 import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.admin.region.domain.Region;
@@ -19,7 +21,7 @@ public class Relationship extends BaseEntity{
 	private static final long serialVersionUID = -3L;
 	
 	@ManyToOne
-	@JoinColumn(name="IMAGE_ID",referencedColumnName="IMAGE_ID")
+	@JoinColumn(name="IMAGE_ID")
 	Image image;
 	
 	@Column(name="predicate")

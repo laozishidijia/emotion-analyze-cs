@@ -34,8 +34,8 @@ public class Subject extends BaseEntity {
 	@Column(name = "x")
 	private int x;
 
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "relationshipId",referencedColumnName="relationshipId")
+	@OneToOne
+	@JoinColumn(name = "relationshipId")
 	Relationship relationship;
 	
 	public Long getObjectId() {
