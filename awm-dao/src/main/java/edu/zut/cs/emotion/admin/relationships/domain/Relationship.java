@@ -1,32 +1,34 @@
 package edu.zut.cs.emotion.admin.relationships.domain;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import edu.zut.cs.emotion.admin.domain.Image;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
+import edu.zut.cs.emotion.admin.region.domain.Region;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 @Table(name="EMOTION_ANALYZE_RELATIONSHIP")
 @Entity
 public class Relationship extends BaseEntity{
 	
-	private static final long serialVersionUID = -2L;
+	private static final long serialVersionUID = -3L;
 	
 	@ManyToOne
-	@JoinColumn(name = "IMAGE_ID")
+	@JoinColumn(name="IMAGE_ID")
 	Image image;
 	
 	@Column(name="predicate")
 	String predicate;
 	
-	 @OneToOne(cascade={CascadeType.ALL})
-     @JoinColumn(name="OBJECT_ID")
+	@OneToOne
+    @JoinColumn(name="OBJECT_ID")
 	MyObject myObject;
 	
 	@Column(name="relationshipId")
@@ -35,9 +37,23 @@ public class Relationship extends BaseEntity{
 	@Column(name="synsets")
 	String synsets;
 	
-	@OneToOne(cascade={CascadeType.ALL})
-	@PrimaryKeyJoinColumn(name = "relationshipId", referencedColumnName="ID")
+	@OneToOne(mappedBy="relationship")
 	Subject subject;
+	
+	@Column(name="SUBJECT_ID")
+	Long subject_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "REGION_ID")
+	Region relationship_region;
+
+	public Region getRelationship_region() {
+		return relationship_region;
+	}
+
+	public void setRelationship_region(Region relationship_region) {
+		this.relationship_region = relationship_region;
+	}
 
 	public Image getImage() {
 		return image;
@@ -86,5 +102,12 @@ public class Relationship extends BaseEntity{
 	public void setSubject(Subject subject) {
 		this.subject = subject;
 	}
-	
+
+	public Long getSubject_id() {
+		return subject_id;
+	}
+
+	public void setSubject_id(Long subject_id) {
+		this.subject_id = subject_id;
+	}
 }

@@ -1,8 +1,8 @@
-package edu.zut.cs.emotion.admin.dao;
+package edu.zut.cs.emotion.admin.image.dao;
 
 import org.springframework.data.jpa.repository.Query;
 
-import edu.zut.cs.emotion.admin.domain.Image;
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.base.dao.GenericTreeDao;
 
 public interface ImageDao extends GenericTreeDao<Image,Long>{

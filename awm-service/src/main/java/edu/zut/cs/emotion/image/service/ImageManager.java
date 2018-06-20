@@ -1,6 +1,6 @@
-package edu.zut.cs.emotion.data.service;
+package edu.zut.cs.emotion.image.service;
 
-import edu.zut.cs.emotion.admin.domain.Image;
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.base.service.GenericTreeManager;
 
 public interface ImageManager extends GenericTreeManager<Image,Long>{

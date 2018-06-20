@@ -2,15 +2,18 @@ package edu.zut.cs.emotion.admin.object.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import edu.zut.cs.emotion.admin.region.domain.Region;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 
 @Table(name="EMOTION_ANALYZE_MYOBJECTS")
 @Entity
 public class MyObject extends BaseEntity{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -1L;
 	
 	@Column(name="SYNSETS")
 	String synsets;
@@ -20,6 +23,9 @@ public class MyObject extends BaseEntity{
 	
 	@Column(name="NAMES")
 	String names;
+	
+	@Column(name="NAME")
+	String name;
 	
 	@Column(name="X")
 	int x;
@@ -35,6 +41,26 @@ public class MyObject extends BaseEntity{
 	
 	@Column(name="MERGED_OBJECT_IDS")
 	String merged_object_ids;
+	
+	@ManyToOne
+	@JoinColumn(name = "Region_ID")
+	Region myObject_region;
+
+	public Region getMyObject_region() {
+		return myObject_region;
+	}
+
+	public void setMyObject_region(Region myObject_region) {
+		this.myObject_region = myObject_region;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public String getSynsets() {
 		return synsets;

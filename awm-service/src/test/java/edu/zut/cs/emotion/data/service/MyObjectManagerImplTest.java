@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.base.service.GenericGenerator;
-import edu.zut.cs.emotion.data.object.service.MyObjectManager;
+import edu.zut.cs.emotion.object.service.MyObjectManager;
 
 public class MyObjectManagerImplTest extends GenericGenerator{
 	

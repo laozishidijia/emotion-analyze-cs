@@ -7,8 +7,9 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.zut.cs.emotion.admin.domain.Image;
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.base.service.GenericGenerator;
+import edu.zut.cs.emotion.image.service.ImageManager;
 
 public class ImageManagerImplTest extends GenericGenerator{
 	
