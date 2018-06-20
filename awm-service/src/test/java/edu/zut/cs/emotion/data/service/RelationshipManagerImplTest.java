@@ -69,7 +69,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 		List <Relationship> relationshipsArryList = new ArrayList<Relationship>();
 		List <MyObject> myObjectsArryList = new ArrayList<MyObject>();
 		
-		for (int i = 1; i < 2311; i++) {
+		for (int i = 47; i <=2311; i++) {
 			File file = new File("E:\\Visualgenome\\relationships_format\\" + i + ".json");
 			String content = FileUtils.readFileToString(file, "utf-8");
 			try {
@@ -144,7 +144,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							relationship.setImage(imageManager.findByImage_id(imageId));
 							
 							//------用线程保存
-							if(myObjectsArryList.size()<500) {
+							if(myObjectsArryList.size()<5000) {
 								myObjectsArryList.add(myObject);
 								System.out.println("添加一条myobject.....");
 							}else {
@@ -152,7 +152,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 								myObjectsArryList.clear();
 							}
 							
-							if(relationshipsArryList.size()<500) {
+							if(relationshipsArryList.size()<5000) {
 								relationshipsArryList.add(relationship);
 								System.out.println("添加一条relationship.....");
 							}else {
@@ -160,7 +160,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 								relationshipsArryList.clear();
 							}
 							
-							if(subjectsArryList.size()<500) {
+							if(subjectsArryList.size()<5000) {
 								subjectsArryList.add(subject);
 								System.out.println("添加一条subject.....");
 								
@@ -181,6 +181,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			System.out.println("正在处理第------------------------【"+i+"】个文件");
 		}
 	}
 }
