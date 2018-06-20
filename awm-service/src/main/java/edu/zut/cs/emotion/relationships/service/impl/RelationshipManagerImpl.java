@@ -22,7 +22,5 @@ public class RelationshipManagerImpl extends GenericManagerImpl<Relationship,Lon
 	{
 		Relationship relationship   = relationshipDao.findByRelationshipId(relationshipId);
 		return relationship;
-		
 	}
-	
 }
