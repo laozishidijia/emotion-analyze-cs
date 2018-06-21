@@ -91,7 +91,8 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 						JSONObject object = new JSONObject(relation);
 						Long imageId = object.getLong("image_id");
 						JSONArray jArray = object.getJSONArray("relationships");
-						for (int j = 0; j < jArray.length(); j++) {
+						for (int j = 0; j < jArray.length(); j++) 
+						{
 							JSONObject object1 = jArray.getJSONObject(j);
 							// -------解析myobject对象
 							JSONObject childObject = object1.getJSONObject("object");

@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.region.domain.Region;
 import edu.zut.cs.emotion.admin.scene.domain.Scene;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
@@ -15,6 +16,9 @@ import edu.zut.cs.emotion.base.domain.BaseEntity;
 public class MyObject extends BaseEntity{
 
 	private static final long serialVersionUID = -1L;
+	@ManyToOne
+	@JoinColumn(name="IMAGE_ID")
+	Image image;
 	
 	@Column(name="SYNSETS")
 	String synsets;
@@ -58,7 +62,13 @@ public class MyObject extends BaseEntity{
 	public void setMyObject_region(Region myObject_region) {
 		this.myObject_region = myObject_region;
 	}
+	public Image getImage() {
+		return image;
+	}
 
+	public void setImage(Image image) {
+		this.image = image;
+	}
 	public String getName() {
 		return name;
 	}

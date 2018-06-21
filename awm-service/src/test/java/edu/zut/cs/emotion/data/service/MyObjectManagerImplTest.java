@@ -8,16 +8,23 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.base.service.GenericGenerator;
+import edu.zut.cs.emotion.image.service.ImageManager;
 import edu.zut.cs.emotion.object.service.MyObjectManager;
 
 public class MyObjectManagerImplTest extends GenericGenerator{
 	
 	@Autowired
 	MyObjectManager myObjectManager;
-	
+	@Autowired
+	ImageManager imageManager;
+
+	public void findTest()
+	{
+		System.out.println(this.imageManager.findByImage_id((long) 1));
+	}
 	@Test
 	public void addJsonData()
 	{
@@ -38,8 +45,9 @@ public class MyObjectManagerImplTest extends GenericGenerator{
 					JSONObject job=new JSONObject(content);
 					JSONArray arr=job.getJSONArray("objects");
 					
-					//System.out.println("count is   "+count);
-					
+				
+					Long image_id=new Long(job.getLong("image_id"));
+					System.out.println(image_id);
 					for(int j=0;j<arr.length();j++)
 					{
 						JSONObject job1=arr.getJSONObject(j);
@@ -96,20 +104,15 @@ public class MyObjectManagerImplTest extends GenericGenerator{
 						myObject.setSynsets(synsets);
 						myObject.setObject_id(object_id);
 						myObject.setNames(names);
-						//System.out.println("arry is    "+j);
-						//System.out.println(myObject.getSynsets());
-						//System.out.println(myObject.getH());
-						//System.out.println(myObject.getObject_id());
+						Image temImage=this.imageManager.findByImage_id(image_id);
+						if(temImage!=null)
+						{
+							myObject.setImage(temImage);
+						}else myObject.setImage(null);
+						myObject=this.myObjectManager.save(myObject);
 						
-						//System.out.println(myObject.getMerged_object_ids());
-						//System.out.println(myObject.getNames());
-						//System.out.println(myObject.getW());
-						//System.out.println(myObject.getY());
-						//System.out.println(myObject.getX());
-						//System.out.println("***********************************************");
-						//System.out.println(myObject.getSynsets()+" "+myObject.getNames()+" "+myObject.getH()+" "+myObject.getY()+" ");
-						//System.out.println(myObject.getX()+" "+myObject.getW()+" "+myObject.getObject_id()+" "+myObject.getMerged_object_ids()+" ");
-						this.myObjectManager.save(myObject);
+						
+						
 					}
 					
 					//count=count+1;
