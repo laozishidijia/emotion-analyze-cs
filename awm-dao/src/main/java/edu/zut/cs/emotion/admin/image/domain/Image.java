@@ -37,10 +37,10 @@ public class Image extends BaseTreeEntity<Image>{
 	@Column(name="FLICKR_ID")
 	Long flickr_id;
 	
-	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	Set<Relationship> relationships;
 	
-	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	Set<Region> regions; 
 	
 	public Long getImage_id() {
