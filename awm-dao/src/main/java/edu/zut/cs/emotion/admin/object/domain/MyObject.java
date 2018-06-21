@@ -7,6 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import edu.zut.cs.emotion.admin.region.domain.Region;
+import edu.zut.cs.emotion.admin.scene.domain.Scene;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 
 @Table(name="EMOTION_ANALYZE_MYOBJECTS")
@@ -45,6 +46,10 @@ public class MyObject extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name = "Region_ID")
 	Region myObject_region;
+	
+	@ManyToOne
+	@JoinColumn(name="SCENE_ID")
+	Scene scene;
 
 	public Region getMyObject_region() {
 		return myObject_region;

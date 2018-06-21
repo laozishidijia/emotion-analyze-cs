@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.admin.region.domain.Region;
+import edu.zut.cs.emotion.admin.scene.domain.Scene;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 @Table(name="EMOTION_ANALYZE_RELATIONSHIP")
 @Entity
@@ -46,6 +47,10 @@ public class Relationship extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name = "REGION_ID")
 	Region relationship_region;
+	
+	@ManyToOne
+	@JoinColumn(name="SENCE_ID")
+	Scene scene;
 
 	public Region getRelationship_region() {
 		return relationship_region;
