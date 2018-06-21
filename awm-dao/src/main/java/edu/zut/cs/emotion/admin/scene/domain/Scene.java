@@ -12,49 +12,40 @@ import javax.persistence.Table;
 import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 
-@Table(name="EMOTION_ANALYZE_SCENE")
+@Table(name = "EMOTION_ANALYZE_SCENE")
 @Entity
-public class Scene extends BaseEntity{
-	
+public class Scene extends BaseEntity {
+
 	private static final long serialVersionUID = -5L;
-	
-	@OneToMany(mappedBy = "sence", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	Set<Relationship> relationshipList;
-	
-	@OneToMany(mappedBy = "sence", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	Set<Object> objectsList;
-	
-	@Column(name="image_id")
-	String imageId;
+	@Column(name = "relationshipsId",columnDefinition="LONGTEXT")
+	String relationshipsId;
+	@Column(name = "imageId")
+	Long imageId;
+	@Column(name = "objectId",columnDefinition="LONGTEXT")
+	String objectsId;
 
-	public Set<Relationship> getRelationshipList() {
-		return relationshipList;
+	public String getRelationshipsId() {
+		return relationshipsId;
 	}
 
-	public void setRelationshipList(Set<Relationship> relationshipList) {
-		this.relationshipList = relationshipList;
+	public void setRelationshipsId(String relationshipsId) {
+		this.relationshipsId = relationshipsId;
 	}
 
-	public Set<Object> getObjectsList() {
-		return objectsList;
-	}
-
-	public void setObjectsList(Set<Object> objectsList) {
-		this.objectsList = objectsList;
-	}
-
-	public String getImageId() {
+	public Long getImageId() {
 		return imageId;
 	}
 
-	public void setImageId(String imageId) {
+	public void setImageId(Long imageId) {
 		this.imageId = imageId;
 	}
 
-	@Override
-	public String toString() {
-		return "Scene [relationshipList=" + relationshipList + ", objectsList=" + objectsList + ", imageId=" + imageId
-				+ "]";
+	public String getObjectsId() {
+		return objectsId;
+	}
+
+	public void setObjectsId(String objectsId) {
+		this.objectsId = objectsId;
 	}
 
 }
