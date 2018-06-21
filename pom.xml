@@ -10,6 +10,7 @@
   	<module>awm-web</module>
   	<module>awm-base</module>
   	<module>awm-cilent</module>
+  	<module>awm-client</module>
   </modules>
   
   <properties>
