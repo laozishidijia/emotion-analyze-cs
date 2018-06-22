@@ -1,10 +1,9 @@
 package edu.zut.cs.emotion.admin.relationships.dao;
-
-
 import org.springframework.data.jpa.repository.Query;
-
 import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.base.dao.GenericDao;
+
+
 
 public interface RelationshipDao extends GenericDao<Relationship,Long> {
 	

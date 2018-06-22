@@ -63,13 +63,22 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
 			 System.out.println("-----------------------------------------------------");
 	 }
+	 @Test
+	 public void testFindByRelationshipId()
+	 {
+		 Long  long1 = new Long(15927);
+		 Relationship relationship =  relationshipManager.findByRelationshipId(long1);
+		 System.out.println(relationship.getPredicate());
+	 }
+	 
+	 
 	@Test
 	public void add_Data() throws IOException {
 		List <Subject> subjectsArryList = new ArrayList<Subject>();
 		List <Relationship> relationshipsArryList = new ArrayList<Relationship>();
 		List <MyObject> myObjectsArryList = new ArrayList<MyObject>();
 		
-		for (int i = 47; i <=2311; i++) {
+		for (int i = 1; i <=2311; i++) {
 			File file = new File("E:\\Visualgenome\\relationships_format\\" + i + ".json");
 			String content = FileUtils.readFileToString(file, "utf-8");
 			try {
@@ -145,7 +154,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							relationship.setImage(imageManager.findByImage_id(imageId));
 							
 							//------用线程保存
-							if(myObjectsArryList.size()<5000) {
+							if(myObjectsArryList.size()<50) {
 								myObjectsArryList.add(myObject);
 								System.out.println("添加一条myobject.....");
 							}else {
@@ -153,7 +162,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 								myObjectsArryList.clear();
 							}
 							
-							if(relationshipsArryList.size()<5000) {
+							if(relationshipsArryList.size()<50) {
 								relationshipsArryList.add(relationship);
 								System.out.println("添加一条relationship.....");
 							}else {
@@ -161,7 +170,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 								relationshipsArryList.clear();
 							}
 							
-							if(subjectsArryList.size()<5000) {
+							if(subjectsArryList.size()<50) {
 								subjectsArryList.add(subject);
 								System.out.println("添加一条subject.....");
 								
@@ -170,7 +179,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 								subjectsArryList.clear();
 							}
 							System.out.println("-------------------------------------");
-							//---------不用线程
+//							---------不用线程
 						
 //							 myobjectManager.save(myObject);
 //							relationshipManager.save(relationship);
