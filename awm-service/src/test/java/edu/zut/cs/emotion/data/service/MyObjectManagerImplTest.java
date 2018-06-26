@@ -21,15 +21,16 @@ public class MyObjectManagerImplTest extends GenericGenerator{
 	@Autowired
 	ImageManager imageManager;
 
-	public void findTest()
+	/*public void findTest()
 	{
 		System.out.println(this.imageManager.findByImage_id((long) 1));
-	}
+		
+	}*/
 	@Test
 	public void addJsonData()
 	{
 		try {
-			for(int i=1;i<5533;i++) 
+			for(int i=1;i<5333;i++) 
 			//for(int i=1;i<2;i++) 
 			{
 				File file=new File("D:\\javaee学习资料\\emotion\\objects\\complete\\"+i+".json");
@@ -109,9 +110,9 @@ public class MyObjectManagerImplTest extends GenericGenerator{
 						{
 							myObject.setImage(temImage);
 						}else myObject.setImage(null);
-						myObject=this.myObjectManager.save(myObject);
+						//myObject=this.myObjectManager.save(myObject);
 						
-						
+						//System.out.println("merged_object_ids  is  :"+myObject.getMerged_object_ids());
 						
 					}
 					
