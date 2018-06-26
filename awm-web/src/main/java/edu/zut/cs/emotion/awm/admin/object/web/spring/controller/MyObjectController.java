@@ -1,4 +1,4 @@
-package edu.zut.cs.emotion.awm.admin.web.spring.controller;
+package edu.zut.cs.emotion.awm.admin.object.web.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
