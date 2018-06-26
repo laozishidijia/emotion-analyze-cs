@@ -154,36 +154,36 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							relationship.setImage(imageManager.findByImage_id(imageId));
 							
 							//------用线程保存
-							if(myObjectsArryList.size()<50) {
-								myObjectsArryList.add(myObject);
-								System.out.println("添加一条myobject.....");
-							}else {
-								saveObject(myobjectManager,myObjectsArryList);
-								myObjectsArryList.clear();
-							}
-							
-							if(relationshipsArryList.size()<50) {
-								relationshipsArryList.add(relationship);
-								System.out.println("添加一条relationship.....");
-							}else {
-								saveRelationship(relationshipManager,relationshipsArryList);
-								relationshipsArryList.clear();
-							}
-							
-							if(subjectsArryList.size()<50) {
-								subjectsArryList.add(subject);
-								System.out.println("添加一条subject.....");
-								
-							}else {
-								saveSubject(subjectManager,subjectsArryList);
-								subjectsArryList.clear();
-							}
-							System.out.println("-------------------------------------");
+//							if(myObjectsArryList.size()<50) {
+//								myObjectsArryList.add(myObject);
+//								System.out.println("添加一条myobject.....");
+//							}else {
+//								saveObject(myobjectManager,myObjectsArryList);
+//								myObjectsArryList.clear();
+//							}
+//							
+//							if(relationshipsArryList.size()<50) {
+//								relationshipsArryList.add(relationship);
+//								System.out.println("添加一条relationship.....");
+//							}else {
+//								saveRelationship(relationshipManager,relationshipsArryList);
+//								relationshipsArryList.clear();
+//							}
+//							
+//							if(subjectsArryList.size()<50) {
+//								subjectsArryList.add(subject);
+//								System.out.println("添加一条subject.....");
+//								
+//							}else {
+//								saveSubject(subjectManager,subjectsArryList);
+//								subjectsArryList.clear();
+//							}
+//							System.out.println("-------------------------------------");
 //							---------不用线程
 						
-//							 myobjectManager.save(myObject);
-//							relationshipManager.save(relationship);
-//							 subjectManager.save(subject);
+							 myobjectManager.save(myObject);
+							relationshipManager.save(relationship);
+							 subjectManager.save(subject);
 
 						}
 					}
