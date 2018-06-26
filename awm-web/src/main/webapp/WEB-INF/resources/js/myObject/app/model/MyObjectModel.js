@@ -19,7 +19,7 @@ Ext.define('myObject.model.MyObjectModel', {
 		sortable : true
 	}, {
 		name : 'object_id',
-		type : 'Long',
+		type : '                                                                                                                                                                                                                                                     ',
 		sortable : true
 	}, {
 		name : 'synsets',
