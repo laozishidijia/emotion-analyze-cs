@@ -5,10 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.admin.relationships.domain.Subject;
 import edu.zut.cs.emotion.base.web.spring.controller.GenericController;
-import edu.zut.cs.emotion.relationships.service.RelationshipManager;
 import edu.zut.cs.emotion.relationships.service.SubjectManager;
 
 @Controller

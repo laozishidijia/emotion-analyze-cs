@@ -1,15 +1,9 @@
 package edu.zut.cs.emotion.admin.scene.domain;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 
 @Table(name = "EMOTION_ANALYZE_SCENE")

@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.zut.cs.emotion.admin.scene.domain.Scene;
 import edu.zut.cs.emotion.base.service.GenericGenerator;
-import edu.zut.cs.emotion.object.service.MyObjectManager;
-import edu.zut.cs.emotion.relationships.service.RelationshipManager;
 import edu.zut.cs.emotion.scene.service.SceneManager;
 
 public class SceneManagerimplTest extends GenericGenerator {
