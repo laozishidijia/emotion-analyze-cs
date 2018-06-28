@@ -17,8 +17,11 @@ public class MyObject extends BaseEntity{
 
 	private static final long serialVersionUID = -1L;
 	@ManyToOne
-	@JoinColumn(name="IMAGE_ID")
+	@JoinColumn(name="MY_IMAGE_ID")
 	Image image;
+	
+	@Column(name="IMAGE_ID")
+	Long image_id;
 	
 	@Column(name="SYNSETS")
 	String synsets;
@@ -55,6 +58,22 @@ public class MyObject extends BaseEntity{
 	@JoinColumn(name="SCENE_ID")
 	Scene scene;
 
+	public Long getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(Long image_id) {
+		this.image_id = image_id;
+	}
+
+	public Scene getScene() {
+		return scene;
+	}
+
+	public void setScene(Scene scene) {
+		this.scene = scene;
+	}
+	
 	public Region getMyObject_region() {
 		return myObject_region;
 	}
