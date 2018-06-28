@@ -17,6 +17,10 @@
 <script src="<%=basePath%>bootstrap/js/jquery-3.3.1.min.js"></script>
 <script src="<%=basePath%>bootstrap/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+$('.btn').tooltip();
+</script>
+
 </head>
 <body>
 <nav>
@@ -32,9 +36,6 @@
 		</li>
 	</ul>
 </nav>
-	<a href="#" data-toggle="tooltip" data-placement="right" title="在右侧显示提示内容" cass="btnbtn-primary">工具提示</a>
-<script type="text/javascript">
-	$('.btn').tooltip();
 </script>
 </body>
 </html>
