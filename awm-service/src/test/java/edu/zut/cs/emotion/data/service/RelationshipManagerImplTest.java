@@ -22,7 +22,6 @@ import edu.zut.cs.emotion.relationships.service.RelationshipManager;
 import edu.zut.cs.emotion.relationships.service.SubjectManager;
 
 public class RelationshipManagerImplTest extends GenericGenerator {
-
 	@Autowired
 	RelationshipManager relationshipManager;
 	@Autowired
@@ -31,38 +30,38 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 	SubjectManager subjectManager;
 	@Autowired
 	ImageManager imageManager;
-//-----调用异步线程
-	 @Async("taskExecutor")
-	 public void saveObject(MyObjectManager myobjectManager,List<MyObject> myObjectsArryList)
-	 {
-		     System.out.println("任务---------------------1");
-		     long start = System.currentTimeMillis();
-		 	myobjectManager.save(myObjectsArryList);
-			long end = System.currentTimeMillis();
-			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
-			 System.out.println("-----------------------------------------------------");
-	 }
-	 
-	 @Async("taskExecutor")
-	 public void saveSubject(SubjectManager subjectManager,List<Subject> subjectsArryList)
-	 {
-		     System.out.println("任务---------------------2");
-		     long start = System.currentTimeMillis();
-		     subjectManager.save(subjectsArryList);
-			long end = System.currentTimeMillis();
-			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
-			 System.out.println("-----------------------------------------------------");
-	 }
-	 @Async("taskExecutor")
-	 public void saveRelationship(RelationshipManager relationshipManager,List<Relationship> relationshipsArryList)
-	 {
-		     System.out.println("任务---------------------3");
-		     long start = System.currentTimeMillis();
-		     relationshipManager.save(relationshipsArryList);
-			long end = System.currentTimeMillis();
-			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
-			 System.out.println("-----------------------------------------------------");
-	 }
+////-----调用异步线程
+//	 @Async("taskExecutor")
+//	 public void saveObject(MyObjectManager myobjectManager,List<MyObject> myObjectsArryList)
+//	 {
+//		     System.out.println("任务---------------------1");
+//		     long start = System.currentTimeMillis();
+//		 	myobjectManager.save(myObjectsArryList);
+//			long end = System.currentTimeMillis();
+//			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
+//			 System.out.println("-----------------------------------------------------");
+//	 }
+//	 
+//	 @Async("taskExecutor")
+//	 public void saveSubject(SubjectManager subjectManager,List<Subject> subjectsArryList)
+//	 {
+//		     System.out.println("任务---------------------2");
+//		     long start = System.currentTimeMillis();
+//		     subjectManager.save(subjectsArryList);
+//			long end = System.currentTimeMillis();
+//			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
+//			 System.out.println("-----------------------------------------------------");
+//	 }
+//	 @Async("taskExecutor")
+//	 public void saveRelationship(RelationshipManager relationshipManager,List<Relationship> relationshipsArryList)
+//	 {
+//		     System.out.println("任务---------------------3");
+//		     long start = System.currentTimeMillis();
+//		     relationshipManager.save(relationshipsArryList);
+//			long end = System.currentTimeMillis();
+//			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
+//			 System.out.println("-----------------------------------------------------");
+//	 }
 	 @Test
 	 public void testFindByRelationshipId()
 	 {
@@ -74,11 +73,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 	 
 	@Test
 	public void add_Data() throws IOException {
-		List <Subject> subjectsArryList = new ArrayList<Subject>();
-		List <Relationship> relationshipsArryList = new ArrayList<Relationship>();
-		List <MyObject> myObjectsArryList = new ArrayList<MyObject>();
-		
-		for (int i = 1; i <=1; i++) {
+		for (int i = 1; i <=2311; i++) {
 			File file = new File("E:\\Visualgenome\\relationships_format\\" + i + ".json");
 			String content = FileUtils.readFileToString(file, "utf-8");
 			try {
@@ -90,6 +85,7 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 						// ----------------构建json对象
 						JSONObject object = new JSONObject(relation);
 						Long imageId = object.getLong("image_id");
+						if(imageId==1) {
 						JSONArray jArray = object.getJSONArray("relationships");
 						for (int j = 0; j < jArray.length(); j++) 
 						{
@@ -146,11 +142,16 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							}
 							Relationship relationship = new Relationship();
 							relationship.setPredicate(object1.getString("predicate"));
-							relationship.setMyObject(myObject);
+							if(myobjectManager.findByObject_id(childObject.getLong("object_id"))!=null) {
+								relationship.setMyObject(myobjectManager.findByObject_id(childObject.getLong("object_id")));
+							}else {
+								relationship.setMyObject(myObject);
+							}
 							relationship.setRelationshipId(object1.getLong("relationship_id"));
 							relationship.setSynsets(synsetsMain);
 							//subject 去setRelationship
 							subject.setRelationship(relationship);
+							relationship.setImage_id(imageId);
 							relationship.setImage(imageManager.findByImage_id(imageId));
 							//------用线程保存
 //							if(myObjectsArryList.size()<50) {
@@ -189,12 +190,13 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 								relationshipManager.save(relationship);
 							}
 							 subjectManager.save(subject);
-							
 						}
+					}else {
+						System.err.println("第一条插入完毕");
+						Thread.sleep(50000);
+					}
 					}
 				}
-				 Thread.sleep(500000);
-				 System.out.println("处理完一条");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

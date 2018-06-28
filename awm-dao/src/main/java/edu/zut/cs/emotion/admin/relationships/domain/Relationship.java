@@ -21,8 +21,27 @@ public class Relationship extends BaseEntity{
 	
 	private static final long serialVersionUID = -3L;
 	
+	@Column(name = "IMAGE_ID")
+	Long image_id;
+	
+	public Long getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(Long image_id) {
+		this.image_id = image_id;
+	}
+
+	public Scene getScene() {
+		return scene;
+	}
+
+	public void setScene(Scene scene) {
+		this.scene = scene;
+	}
+
 	@ManyToOne
-	@JoinColumn(name="IMAGE_ID")
+	@JoinColumn(name="MY_IMAGE_ID")
 	Image image;
 	
 	@Column(name="predicate")
