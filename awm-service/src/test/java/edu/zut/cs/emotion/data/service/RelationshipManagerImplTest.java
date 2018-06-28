@@ -2,12 +2,15 @@ package edu.zut.cs.emotion.data.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 
 import edu.zut.cs.emotion.admin.object.domain.MyObject;
 import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
@@ -27,38 +30,6 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 	SubjectManager subjectManager;
 	@Autowired
 	ImageManager imageManager;
-////-----调用异步线程
-//	 @Async("taskExecutor")
-//	 public void saveObject(MyObjectManager myobjectManager,List<MyObject> myObjectsArryList)
-//	 {
-//		     System.out.println("任务---------------------1");
-//		     long start = System.currentTimeMillis();
-//		 	myobjectManager.save(myObjectsArryList);
-//			long end = System.currentTimeMillis();
-//			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
-//			 System.out.println("-----------------------------------------------------");
-//	 }
-//	 
-//	 @Async("taskExecutor")
-//	 public void saveSubject(SubjectManager subjectManager,List<Subject> subjectsArryList)
-//	 {
-//		     System.out.println("任务---------------------2");
-//		     long start = System.currentTimeMillis();
-//		     subjectManager.save(subjectsArryList);
-//			long end = System.currentTimeMillis();
-//			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
-//			 System.out.println("-----------------------------------------------------");
-//	 }
-//	 @Async("taskExecutor")
-//	 public void saveRelationship(RelationshipManager relationshipManager,List<Relationship> relationshipsArryList)
-//	 {
-//		     System.out.println("任务---------------------3");
-//		     long start = System.currentTimeMillis();
-//		     relationshipManager.save(relationshipsArryList);
-//			long end = System.currentTimeMillis();
-//			 System.out.println("完成.....，耗时：" + (end - start) + "毫秒");
-//			 System.out.println("-----------------------------------------------------");
-//	 }
 	 @Test
 	 public void testFindByRelationshipId()
 	 {
@@ -66,8 +37,6 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 		 Relationship relationship =  relationshipManager.findByRelationshipId(long1);
 		 System.out.println(relationship.getPredicate());
 	 }
-	 
-	 
 	@Test
 	public void add_Data() throws IOException {
 		for (int i = 1; i <=2311; i++) {
@@ -106,6 +75,11 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							myObject.setW(childObject.getInt("w"));
 							myObject.setY(childObject.getInt("y"));
 							myObject.setX(childObject.getInt("x"));
+							myObject.setImage(imageManager.findByImage_id(object.getLong("image_id")));
+							if(myobjectManager.findByObject_id(childObject.getLong("object_id"))==null)
+							{
+								myobjectManager.save(myObject);
+							}
 
 							// -----构建subject对象
 							JSONObject childObject2 = object1.getJSONObject("subject");
@@ -150,38 +124,6 @@ public class RelationshipManagerImplTest extends GenericGenerator {
 							subject.setRelationship(relationship);
 							relationship.setImage_id(imageId);
 							relationship.setImage(imageManager.findByImage_id(imageId));
-							//------用线程保存
-//							if(myObjectsArryList.size()<50) {
-//								myObjectsArryList.add(myObject);
-//								System.out.println("添加一条myobject.....");
-//							}else {
-//								saveObject(myobjectManager,myObjectsArryList);
-//								myObjectsArryList.clear();
-//							}
-//							
-//							if(relationshipsArryList.size()<50) {
-//								relationshipsArryList.add(relationship);
-//								System.out.println("添加一条relationship.....");
-//							}else {
-//								saveRelationship(relationshipManager,relationshipsArryList);
-//								relationshipsArryList.clear();
-//							}
-//							
-//							if(subjectsArryList.size()<50) {
-//								subjectsArryList.add(subject);
-//								System.out.println("添加一条subject.....");
-//								
-//							}else {
-//								saveSubject(subjectManager,subjectsArryList);
-//								subjectsArryList.clear();
-//							}
-//							System.out.println("-------------------------------------");
-//							---------不用线程
-						
-							if(myobjectManager.findByObject_id(childObject2.getLong("object_id"))==null)
-							{
-								myobjectManager.save(myObject);
-							}
 							if(relationshipManager.findByRelationshipId(object1.getLong("relationship_id"))==null)
 							{
 								relationshipManager.save(relationship);
