@@ -1,25 +1,31 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>edu.zut.cs.emotion</groupId>
-  <artifactId>awm</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>awm-dao</module>
-  	<module>awm-service</module>
-  	<module>awm-web</module>
-  	<module>awm-base</module>
-  	<module>awm-cilent</module>
-  	<module>awm-client</module>
-  </modules>
-  
-  <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.zut.cs.emotion</groupId>
+	<artifactId>awm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>awm-dao</module>
+		<module>awm-service</module>
+		<module>awm-web</module>
+		<module>awm-base</module>
+		<module>awm-cilent</module>
+		<module>awm-client</module>
+	</modules>
+
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.9</java.version>
 		<spring.version>5.0.5.RELEASE</spring.version>
 		<hibernate.version>5.2.16.Final</hibernate.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -59,7 +65,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
-			
+
 		</dependency>
 		<!-- ============== test end ============== -->
 	</dependencies>
@@ -72,7 +78,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
 				<configuration>
-				<skip>true</skip>
+					<skip>true</skip>
 					<source>1.8</source>
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
@@ -80,5 +86,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>
