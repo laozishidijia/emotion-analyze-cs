@@ -1,7 +1,7 @@
 var pageSize = 20;
 
-var questionanswersStore = Ext.create('questionanswers.store.QuestionanswersStore ');
-relationshipsStore.load({
+var questionanswersStore = Ext.create('questionanswers.store.QuestionanswersStore');
+questionanswersStore.load({
 			callback : function(records, operation, successful) {
 				if (successful) {
 					console.log('department name:', records[0]);

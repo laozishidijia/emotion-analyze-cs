@@ -11,15 +11,19 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.questionanswers.domain.QuAnswers;
 import edu.zut.cs.emotion.base.service.GenericGenerator;
+import edu.zut.cs.emotion.image.service.ImageManager;
 import edu.zut.cs.emotion.questionanswers.service.QuAnswersManager;
 
 public class QuAnswersManagerImplTest extends GenericGenerator{
 	
 	@Autowired
 	QuAnswersManager quanswersmanager;
+	
+	@Autowired
+	ImageManager imageManager;
 	
 	@Test
 	public void testT()
@@ -30,7 +34,7 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 	{
 		List<QuAnswers> QuanswersArrylist=new ArrayList<QuAnswers>();
 		
-		for(int i=1;i<=200;i++)
+		for(int i=0;i<=200;i++)
 		{
 			File file=new File("E:\\QuestionAnswer\\question_answers\\afterdeal\\"+i+".json");
 			
@@ -53,6 +57,8 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 							Quanswers.setImage_id(jObj1.getLong("image_id"));
 							Quanswers.setQa_id(jObj1.getLong("qa_id"));
 						Quanswers.setAnswer(jObj1.getString("answer"));
+						Image temImage = this.imageManager.findByImage_id(jObj1.getLong("image_id"));
+						Quanswers.setImage(temImage);
 							String a_objects="";
 							JSONArray a_objects1=jObj1.getJSONArray( "a_objects");
 							if(a_objects1.length()>1) {
@@ -64,8 +70,10 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 							}
 							else if(a_objects1.length()==1) {
 								a_objects=(String)a_objects1.get(0);
+							}else
+							{
+								a_objects=null;
 							}
-							
 							Quanswers.setA_objects(a_objects);
 							String q_objects="";
 							JSONArray q_objects1=jObj1.getJSONArray("q_objects");
@@ -78,6 +86,10 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 							else if(q_objects1.length()==1)
 							{
 							q_objects=(String)q_objects1.get(0);
+							}
+							else
+							{
+								q_objects=null;
 							}
 							 Quanswers.setQ_objects(q_objects);
 							 if(QuanswersArrylist.size()<100) {
