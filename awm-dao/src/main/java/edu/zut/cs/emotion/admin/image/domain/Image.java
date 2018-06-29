@@ -11,6 +11,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import edu.zut.cs.emotion.admin.attributes.domain.Attributes;
+import edu.zut.cs.emotion.admin.object.domain.MyObject;
+import edu.zut.cs.emotion.admin.questionanswers.domain.QuAnswers;
 import edu.zut.cs.emotion.admin.region.domain.Region;
 import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.base.domain.BaseTreeEntity;
@@ -45,6 +48,15 @@ public class Image extends BaseTreeEntity<Image>{
 	
 	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	Set<Region> regions; 
+	
+	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	Set<MyObject> myObjects;
+	
+	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	Set<QuAnswers> quAnswers;
+	
+	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	Set<Attributes> attributes;
 	
 	public Long getImage_id() {
 		return image_id;

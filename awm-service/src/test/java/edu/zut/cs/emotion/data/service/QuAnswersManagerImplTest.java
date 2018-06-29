@@ -22,6 +22,10 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 	QuAnswersManager quanswersmanager;
 	
 	@Test
+	public void testT()
+	{
+		
+	}
 	public void insertdata ()throws IOException
 	{
 		List<QuAnswers> QuanswersArrylist=new ArrayList<QuAnswers>();

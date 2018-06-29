@@ -7,8 +7,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import edu.zut.cs.emotion.admin.image.domain.Image;
-import edu.zut.cs.emotion.admin.region.domain.Region;
-import edu.zut.cs.emotion.admin.scene.domain.Scene;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 
 @Table(name="EMOTION_ANALYZE_Attributes")
@@ -20,7 +18,7 @@ public class Attributes extends BaseEntity{
 	Image image;
 	
 	@Column(name="IMAGE_ID")
-	String image_id;
+	Long image_id;
 	
 	@Column(name="SYNSETS")
 	String synsets;
@@ -46,13 +44,8 @@ public class Attributes extends BaseEntity{
 	@Column(name="H")
 	int h;
 	
-	@ManyToOne
-	@JoinColumn(name = "Region_ID")
-	Region myObject_region;
-	
-	@ManyToOne
-	@JoinColumn(name="SCENE_ID")
-	Scene scene;
+	@Column(name="ATTRIBUTES")
+	String attributes;
 
 	public Image getImage() {
 		return image;
@@ -60,6 +53,14 @@ public class Attributes extends BaseEntity{
 
 	public void setImage(Image image) {
 		this.image = image;
+	}
+
+	public String getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(String attributes) {
+		this.attributes = attributes;
 	}
 
 	public String getSynsets() {
@@ -70,11 +71,12 @@ public class Attributes extends BaseEntity{
 		this.synsets = synsets;
 	}
 
-	public String getImage_id() {
+
+	public Long getImage_id() {
 		return image_id;
 	}
 
-	public void setImage_id(String image_id) {
+	public void setImage_id(Long image_id) {
 		this.image_id = image_id;
 	}
 
@@ -133,23 +135,5 @@ public class Attributes extends BaseEntity{
 	public void setH(int h) {
 		this.h = h;
 	}
-
-	public Region getMyObject_region() {
-		return myObject_region;
-	}
-
-	public void setMyObject_region(Region myObject_region) {
-		this.myObject_region = myObject_region;
-	}
-
-	public Scene getScene() {
-		return scene;
-	}
-
-	public void setScene(Scene scene) {
-		this.scene = scene;
-	}
-	
-
 	
 }
