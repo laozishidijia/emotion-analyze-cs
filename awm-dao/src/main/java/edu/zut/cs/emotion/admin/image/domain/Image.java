@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -15,6 +17,7 @@ import edu.zut.cs.emotion.base.domain.BaseTreeEntity;
 
 @Table(name="EMOTION_ANALYZE_IMAGE")
 @Entity
+@NamedQueries({ @NamedQuery(name = "Image.getRoot", query = "select image from Image image where image.parent is null") })
 public class Image extends BaseTreeEntity<Image>{
 
 	private static final long serialVersionUID = 1L;
@@ -40,7 +43,7 @@ public class Image extends BaseTreeEntity<Image>{
 	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	Set<Relationship> relationships;
 	
-	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	Set<Region> regions; 
 	
 	public Long getImage_id() {

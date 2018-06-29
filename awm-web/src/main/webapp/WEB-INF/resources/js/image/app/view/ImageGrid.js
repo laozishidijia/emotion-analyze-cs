@@ -3,11 +3,7 @@ var pageSize = 20;
 var imageStore = Ext.create('image.store.ImageStore');
 imageStore.load({
 			callback : function(records, operation, successful) {
-				if (successful) {
-					console.log('department name:', records[0]);
-				} else {
-					console.log('the server reported an error');
-				}
+			console.log(records[0]);
 			}
 		});
 Ext.define('image.view.ImageGrid', {

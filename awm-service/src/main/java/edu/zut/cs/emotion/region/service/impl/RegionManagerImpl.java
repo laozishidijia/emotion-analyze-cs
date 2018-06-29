@@ -1,5 +1,7 @@
 package edu.zut.cs.emotion.region.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +25,11 @@ public class RegionManagerImpl extends GenericManagerImpl<Region,Long>
 	public Region findByRegion_id(Long region_id) {
 		Region region=this.regionDao.findByRegion_id(region_id);
 		return region;
+	}
+
+	public List<Region> findByImage_id(Long image_id) {
+		List<Region> regions=this.regionDao.findByImage_id(image_id);
+		return regions;
 	}
 
 }

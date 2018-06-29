@@ -40,8 +40,11 @@ public class Region extends BaseEntity{
 	@Column(name="Y")
 	int y;
 	
+	@Column(name="IMAGE_ID")
+	Long image_id;
+	
 	@ManyToOne
-	@JoinColumn(name = "IMAGE_ID")
+	@JoinColumn(name = "MY_IMAGE_ID")
 	Image image;
 
 	@OneToMany(mappedBy = "relationship_region", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
@@ -67,6 +70,14 @@ public class Region extends BaseEntity{
 
 	public void setWidth(int width) {
 		this.width = width;
+	}
+
+	public Long getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(Long image_id) {
+		this.image_id = image_id;
 	}
 
 	public int getHeight() {
