@@ -73,7 +73,7 @@
 							</div>
 						</div>
 						<div class="form-bottom">
-							<form role="form" action="/administrator/index.html"
+							<form role="form" action="/awm-web/administrator/index.html"
 								method="post" class="login-form">
 								<div class="form-group">
 									<label class="sr-only" for="form-username">Username</label> <input
