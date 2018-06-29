@@ -2,8 +2,6 @@ package edu.zut.cs.emotion.data.service;
 
 import java.io.File;
 
-import javax.persistence.Table;
-
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,6 +23,10 @@ public class AttributesManagerImplTest extends GenericGenerator{
 	@Autowired
 	ImageManager imageManager;
 	@Test
+	public void testFind()
+	{
+		
+	}
 	public void addJsonDatas()
 	{
 		try {
@@ -48,7 +50,7 @@ public class AttributesManagerImplTest extends GenericGenerator{
 						
 						String synsets=null;
 						JSONArray synset=job1.getJSONArray("synsets");
-						if(synsets.length()!=0)
+						if(synset.length()!=0)
 						{
 							synsets =synset.getString(0);
 							for(int j2=1;j2<synset.length()&&synset.length()>1;j2++)

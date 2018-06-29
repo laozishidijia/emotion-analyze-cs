@@ -16,8 +16,11 @@ import edu.zut.cs.emotion.base.domain.BaseEntity;
 public class Attributes extends BaseEntity{
 	private static final long serialVersionUID = -3L;
 	@ManyToOne
-	@JoinColumn(name="IMAGE_ID")
+	@JoinColumn(name="MY_IMAGE_ID")
 	Image image;
+	
+	@Column(name="IMAGE_ID")
+	String image_id;
 	
 	@Column(name="SYNSETS")
 	String synsets;
@@ -65,6 +68,14 @@ public class Attributes extends BaseEntity{
 
 	public void setSynsets(String synsets) {
 		this.synsets = synsets;
+	}
+
+	public String getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(String image_id) {
+		this.image_id = image_id;
 	}
 
 	public Long getObject_id() {

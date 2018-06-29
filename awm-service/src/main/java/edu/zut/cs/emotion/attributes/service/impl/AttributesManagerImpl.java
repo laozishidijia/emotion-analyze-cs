@@ -19,6 +19,7 @@ public class AttributesManagerImpl extends GenericManagerImpl<Attributes,Long> i
 
 	
 	public Attributes findByAttributesId(Long attributesId) {
+		
 		Attributes attributes=attributesDao.findByAttributesId(attributesId);
 		return attributes;
 		
