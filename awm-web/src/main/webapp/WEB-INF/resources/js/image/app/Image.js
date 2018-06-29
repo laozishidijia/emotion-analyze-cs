@@ -50,9 +50,10 @@ function getUrlById(id) {
 			});
 	var imageStore = Ext.create('image.store.ImageStore');
 	imageStore.load({
-				callback : function(records, operation, successful) {
-					url = records[0].get('url');
-					return url;
-				}
-			});
+						callback : function(records, operation, successful) {
+							console.log(records[0]);
+							url = records[0].get('url');
+							$("#imgView").attr("src",url);
+						}
+					});
 };
