@@ -65,7 +65,7 @@ window.onload = function(){
 			</ul>
 			<ul class="nav navbar-nav navbar-sub pull-right">
 				<li><a href="#">Register</a></li>
-				<li><a href="#">Login</a></li>
+				<li><a href="/awm-web/administrator/index.html">Login</a></li>
 			</ul>
 		</div>
 	</div>

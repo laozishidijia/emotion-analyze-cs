@@ -42,6 +42,15 @@
 <script
 	src="<%=basePath%>/resources/js/administrator/assets/js/scripts.js"></script>
 </head>
+<script type="text/javascript">
+function submit(){
+	var name = '${name}';
+	console.log('<%=basePath%>administrator/login.html');
+	if(name==null){
+	top.location='<%=basePath%>administrator/login.html';
+	}
+}
+</script>
 <body>
 	<div class="top-content">
 
@@ -73,11 +82,11 @@
 							</div>
 						</div>
 						<div class="form-bottom">
-							<form role="form" action="/administrator/index.html"
+							<form role="form" action="/awm-web/administrator/login.html"
 								method="post" class="login-form">
 								<div class="form-group">
-									<label class="sr-only" for="form-username">Username</label> <input
-										type="text" name="username" placeholder="Username..."
+									<label class="sr-only" for="form-username">Username</label> 
+									<input type="text" name="username" placeholder="Username..."
 										class="form-username form-control" id="form-username">
 								</div>
 								<div class="form-group">
@@ -85,7 +94,7 @@
 										type="password" name="password" placeholder="Password..."
 										class="form-password form-control" id="form-password">
 								</div>
-								<button type="submit" class="btn">Sign in!</button>
+								<button type="submit" class="btn" onclick="submit()">Sign in!</button>
 							</form>
 						</div>
 					</div>
@@ -106,13 +115,13 @@
 				</div>
 			</div>
 		</div>
-	
+
 	</div>
-		<div class="backstretch"
-			style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 215px; width: 1168px; z-index: -999999; position: fixed;">
-			<img
-				style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 1519px; height: 1012.67px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -395.333px;"
-				src="<%=basePath%>/resources/js/administrator/assets/img/backgrounds/1.jpg">
-		</div>
+	<div class="backstretch"
+		style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 215px; width: 1168px; z-index: -999999; position: fixed;">
+		<img
+			style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 1519px; height: 1012.67px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -395.333px;"
+			src="<%=basePath%>/resources/js/administrator/assets/img/backgrounds/1.jpg">
+	</div>
 </body>
 </html>
