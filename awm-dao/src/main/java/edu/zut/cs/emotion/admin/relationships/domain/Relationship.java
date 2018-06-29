@@ -1,8 +1,10 @@
 package edu.zut.cs.emotion.admin.relationships.domain;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -55,7 +57,7 @@ public class Relationship extends BaseEntity{
 	@Column(name="synsets")
 	String synsets;
 	
-	@OneToOne(mappedBy="relationship")
+	@OneToOne(mappedBy="relationship", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	Subject subject;
 	
 	@Column(name="SUBJECT_ID")

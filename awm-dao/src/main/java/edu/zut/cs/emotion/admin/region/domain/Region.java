@@ -47,13 +47,13 @@ public class Region extends BaseEntity{
 	@JoinColumn(name = "MY_IMAGE_ID")
 	Image image;
 
-	@OneToMany(mappedBy = "relationship_region", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "relationship_region", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	Set<Relationship> relationships;
 	
-	@OneToMany(mappedBy = "synset_region", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "synset_region", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	Set<Synset> synsets;
 	
-	@OneToMany(mappedBy = "myObject_region", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "myObject_region", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	Set<MyObject> myObjects;
 	
 	public Long getRegion_id() {

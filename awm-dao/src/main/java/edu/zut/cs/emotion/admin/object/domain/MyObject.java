@@ -173,4 +173,12 @@ public class MyObject extends BaseEntity{
 		this.merged_object_ids = merged_object_ids;
 	}
 
+	@Override
+	public String toString() {
+		return "MyObject [image=" + image + ", image_id=" + image_id + ", synsets=" + synsets + ", object_id="
+				+ object_id + ", names=" + names + ", name=" + name + ", x=" + x + ", y=" + y + ", w=" + w + ", h=" + h
+				+ ", merged_object_ids=" + merged_object_ids + ", myObject_region=" + myObject_region + ", scene="
+				+ scene + ", relationship=" + relationship + "]";
+	}
+
 }

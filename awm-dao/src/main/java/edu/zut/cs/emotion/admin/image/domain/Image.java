@@ -1,21 +1,11 @@
 package edu.zut.cs.emotion.admin.image.domain;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import edu.zut.cs.emotion.admin.attributes.domain.Attributes;
-import edu.zut.cs.emotion.admin.object.domain.MyObject;
-import edu.zut.cs.emotion.admin.questionanswers.domain.QuAnswers;
-import edu.zut.cs.emotion.admin.region.domain.Region;
-import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.base.domain.BaseTreeEntity;
 
 @Table(name="EMOTION_ANALYZE_IMAGE")
@@ -43,21 +33,28 @@ public class Image extends BaseTreeEntity<Image>{
 	@Column(name="FLICKR_ID")
 	Long flickr_id;
 	
-	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-	Set<Relationship> relationships;
+	@Column(name="REGION_IDS")
+	String region_ids;
 	
-	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	Set<Region> regions; 
+	@Column(name="QA_IDS")
+	String qa_ids;
 	
-	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	Set<MyObject> myObjects;
-	
-	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	Set<QuAnswers> quAnswers;
-	
-	@OneToMany(mappedBy = "image", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	Set<Attributes> attributes;
-	
+	public String getRegion_ids() {
+		return region_ids;
+	}
+
+	public void setRegion_ids(String region_ids) {
+		this.region_ids = region_ids;
+	}
+
+	public String getQa_ids() {
+		return qa_ids;
+	}
+
+	public void setQa_ids(String qa_ids) {
+		this.qa_ids = qa_ids;
+	}
+
 	public Long getImage_id() {
 		return image_id;
 	}
@@ -109,7 +106,9 @@ public class Image extends BaseTreeEntity<Image>{
 	@Override
 	public String toString() {
 		return "Image [image_id=" + image_id + ", url=" + url + ", width=" + width + ", height=" + height + ", coco_id="
-				+ coco_id + ", flickr_id=" + flickr_id + "]";
-	} 
+				+ coco_id + ", flickr_id=" + flickr_id + ", region_ids=" + region_ids + ", qa_ids=" + qa_ids + "]";
+	}
+
+
 	
 }

@@ -9,4 +9,5 @@ public interface MyObjectDao extends GenericDao<MyObject,Long>{
 	
 	@Query(value="select myObject from MyObject myObject where myObject.object_id=?1")
 	public MyObject findByObject_id(Long object_id);
+	
 }

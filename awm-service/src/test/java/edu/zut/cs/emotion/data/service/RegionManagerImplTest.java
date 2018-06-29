@@ -36,11 +36,11 @@ public class RegionManagerImplTest extends GenericGenerator{
 	@Autowired
 	SynsetManager synsetManager;
 	
-	
-	public void findTest()
+	public void findUpdate()
 	{
-		System.out.println(this.myObjectManager.findByObject_id((long) 501950));
+		
 	}
+	
 	@Test
 	public void addOne()
 	{
@@ -101,8 +101,7 @@ public class RegionManagerImplTest extends GenericGenerator{
 				for(int k=0;k<objects.length();k++)
 				{
 					JSONObject temObj=objects.getJSONObject(k);
-					MyObject myObject=this.myObjectManager.findByObject_id(temObj.getLong("object_id"));
-					if(null==myObject) {
+						MyObject myObject;
 						myObject=new MyObject();
 						myObject.setName(temObj.getString("name"));
 						myObject.setObject_id(temObj.getLong("object_id"));
@@ -119,10 +118,6 @@ public class RegionManagerImplTest extends GenericGenerator{
 						myObject.setSynsets(strSyn);
 						myObject.setMyObject_region(region);
 						this.myObjectManager.save(myObject);
-					}else {
-						myObject.setMyObject_region(region);
-						this.myObjectManager.save(myObject);
-					}
 				}
 			}
 		}catch (Exception e) {

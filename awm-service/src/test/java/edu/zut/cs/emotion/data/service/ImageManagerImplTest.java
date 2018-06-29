@@ -16,17 +16,12 @@ public class ImageManagerImplTest extends GenericGenerator{
 	@Autowired
 	ImageManager imageManager;
 	
-	
-	public void testFindByID()
-	{
-//		Image image=new Image();
-		Long image_id=(long) 11111;
-//		image.setImage_id(image_id);
-//		image.setUrl("www.baidu.com");
-//		this.imageManager.save(image);
-		System.out.println(this.imageManager.findByImage_id(image_id));
-	}
 	@Test
+	public void testFindUpdate()
+	{
+		System.out.println(this.imageManager.updateQA_ids("250", (long) 1));
+	}
+	
 	public void testAddData()
 	{
 		try {
