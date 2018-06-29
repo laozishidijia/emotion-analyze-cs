@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.admin.region.domain.Region;
+import edu.zut.cs.emotion.admin.relationships.domain.Relationship;
 import edu.zut.cs.emotion.admin.scene.domain.Scene;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 
@@ -57,6 +58,18 @@ public class MyObject extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name="SCENE_ID")
 	Scene scene;
+	
+	@ManyToOne
+	@JoinColumn(name="RELATIONSHIP_ID")
+	Relationship relationship;
+	
+	public Relationship getRelationship() {
+		return relationship;
+	}
+
+	public void setRelationship(Relationship relationship) {
+		this.relationship = relationship;
+	}
 
 	public Long getImage_id() {
 		return image_id;

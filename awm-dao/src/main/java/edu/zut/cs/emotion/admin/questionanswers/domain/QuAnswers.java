@@ -2,8 +2,11 @@ package edu.zut.cs.emotion.admin.questionanswers.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import edu.zut.cs.emotion.admin.image.domain.Image;
 import edu.zut.cs.emotion.base.domain.BaseEntity;
 
 @Table(name = "EMOTION_ANALYZE_QUANSWERS")
@@ -12,17 +15,29 @@ public class QuAnswers extends BaseEntity {
 
 	private static final long serialVersionUID = -3L;
 
-	@Column(name = "question")
+	@Column(name = "QUESTION")
 	String question;
 
-	@Column(name = "image_id")
+	@Column(name = "IMAGE_ID")
 	long image_id;
 
 	@Column(name = "qa_id")
 	long qa_id;
 
-	@Column(name = "answer")
+	@Column(name = "ANSWER")
 	String answer;
+	
+	@ManyToOne
+	@JoinColumn(name = "MY_IMAGE_ID")
+	Image image;
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
 
 	public String getQuestion() {
 		return question;
