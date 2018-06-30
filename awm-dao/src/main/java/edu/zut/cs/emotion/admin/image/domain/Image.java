@@ -36,7 +36,7 @@ public class Image extends BaseTreeEntity<Image>{
 	@Column(name="REGION_IDS")
 	String region_ids;
 	
-	@Column(name="QA_IDS")
+	@Column(name="QA_IDS",columnDefinition="LONGTEXT")
 	String qa_ids;
 	
 	public String getRegion_ids() {
