@@ -41,20 +41,6 @@
 					</div>
 					<button id="search" type="submit" class="btn btn-default" onclick="SearchFunction()">搜索</button>
 				</form>
-				<ul class=" nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">选择角色 <span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu " role="menu"
-							aria-labelledby="dropdownMenu1">
-							<li><a href="#" role="menuitem">管理员</a></li>
-							<li><a href="#" role="menuitem">用户</a></li>
-						</ul>
-					</li>
-					<li class=""><a href="#">登入</a></li>
-					<li class=""><a href="#">注册</a></li>
-				</ul>
 			</div>
 		</div>
 	</nav>
@@ -76,7 +62,7 @@
 			</div>
 			<div class="panel-body">
 				<div class="embed-responsive embed-responsive-4by3">
-					<iframe class="embed-responsive-item" src="http://localhost:8080/awm-web/image/index.html" id="panel_view"></iframe>
+					<iframe class="embed-responsive-item" src="#" id="panel_view"></iframe>
 				</div>
 			</div>
 		</div>

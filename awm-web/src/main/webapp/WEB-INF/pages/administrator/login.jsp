@@ -5,13 +5,12 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 <base href="<%=basePath%>">
 <title>Login Page</title>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -99,28 +98,14 @@ function submit(){
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3 social-login">
-						<h3>...or login with:</h3>
-						<div class="social-login-buttons">
-							<a class="btn btn-link-1 btn-link-1-facebook" href="#"> <i
-								class="fa fa-facebook"></i> Facebook
-							</a> <a class="btn btn-link-1 btn-link-1-twitter" href="#"> <i
-								class="fa fa-twitter"></i> Twitter
-							</a> <a class="btn btn-link-1 btn-link-1-google-plus" href="#"> <i
-								class="fa fa-google-plus"></i> Google Plus
-							</a>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
-
 	</div>
 	<div class="backstretch"
 		style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 215px; width: 1168px; z-index: -999999; position: fixed;">
 		<img
-			style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 1519px; height: 1012.67px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -395.333px;"
+			style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 2000px; height: 1500px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -395.333px;"
 			src="<%=basePath%>/resources/js/administrator/assets/img/backgrounds/1.jpg">
 	</div>
 </body>
