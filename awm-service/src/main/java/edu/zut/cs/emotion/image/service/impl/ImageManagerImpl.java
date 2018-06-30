@@ -28,9 +28,7 @@ public class ImageManagerImpl extends GenericTreeManagerImpl<Image,Long> impleme
 	
 	@Transactional
 	public Integer updateQA_ids(String qa_ids, Long image_id) {
-		
 		Integer state=this.imageDao.updateQA_ids(qa_ids, image_id);
-		
 		return state;
 	}
 	

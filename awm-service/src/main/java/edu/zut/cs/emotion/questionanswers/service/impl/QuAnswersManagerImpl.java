@@ -1,5 +1,7 @@
 package edu.zut.cs.emotion.questionanswers.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,14 @@ public class QuAnswersManagerImpl extends GenericManagerImpl<QuAnswers,Long> imp
 		this.quanswersdao=quanswersdao;
 		this.dao=this.quanswersdao;
 		
+	}
+	public QuAnswers findByQuAnswers_id(Long question_id) {
+		QuAnswers qa = this.quanswersdao.findByQuAnswers_id(question_id);
+		return qa;
+	}
+	public List<QuAnswers> findByImage_id(Long image_id){
+		List<QuAnswers> qaList = this.quanswersdao.findByImage_id(image_id);
+		return qaList;
 	}
 
 }

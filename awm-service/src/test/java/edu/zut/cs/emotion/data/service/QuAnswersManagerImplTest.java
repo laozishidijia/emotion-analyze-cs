@@ -25,21 +25,23 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 	@Autowired
 	ImageManager imageManager;
 	
-	@Test
-	public void testT()
+	
+	public void testfindByImageID()
 	{
-		
+		List<QuAnswers> qaList = quanswersmanager.findByImage_id((long)1);
+		System.out.println("【一共找到】"+qaList.size());
 	}
+	@Test
 	public void insertdata ()throws IOException
 	{
 		List<QuAnswers> QuanswersArrylist=new ArrayList<QuAnswers>();
+		String imagesQaId="";
 		
-		for(int i=0;i<=200;i++)
+		for(int i=0;i<=442;i++)
 		{
-			File file=new File("E:\\QuestionAnswer\\question_answers\\afterdeal\\"+i+".json");
+			File file=new File("E:\\Visualgenome\\question_answers\\spilt\\after_deal\\"+i+".json");
 			
 			String Str=FileUtils.readFileToString(file, "utf-8");
-			
 			try {
 				String[] QuanswersArrylist1=Str.split("\"id\"");
 				for(String str :QuanswersArrylist1 ) {
@@ -56,8 +58,11 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 							Quanswers.setQuestion(jObj1.getString("question"));
 							Quanswers.setImage_id(jObj1.getLong("image_id"));
 							Quanswers.setQa_id(jObj1.getLong("qa_id"));
-						Quanswers.setAnswer(jObj1.getString("answer"));
+							Quanswers.setAnswer(jObj1.getString("answer"));
 						Image temImage = this.imageManager.findByImage_id(jObj1.getLong("image_id"));
+						imagesQaId = imagesQaId  +jObj1.getLong("qa_id")+",";
+						 imageManager.updateQA_ids(imagesQaId, jObj1.getLong("image_id"));
+						
 						Quanswers.setImage(temImage);
 							String a_objects="";
 							JSONArray a_objects1=jObj1.getJSONArray( "a_objects");
@@ -92,11 +97,11 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 								q_objects=null;
 							}
 							 Quanswers.setQ_objects(q_objects);
-							 if(QuanswersArrylist.size()<100) {
+							 if(QuanswersArrylist.size()<=91) {
 								 QuanswersArrylist.add(Quanswers);
 							 }
 							 quanswersmanager.save(QuanswersArrylist);
-							 
+							
 						}
 						
 					}
