@@ -88,7 +88,6 @@ public abstract class GenericController<T extends BaseEntity, PK extends Seriali
 	@ResponseBody
 	public T getOne(@PathVariable PK id) {
 		return this.manager.findById(id);
-
 	}
 
 	/**
