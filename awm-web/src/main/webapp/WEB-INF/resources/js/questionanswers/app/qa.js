@@ -1,5 +1,13 @@
 function getqaDataBy(id) {
-		
+	
+	 new_element=document.createElement("script");
+	 new_element.setAttribute("type","text/javascript");
+	new_element.setAttribute("src",server_context+"/resources/js/image/app/Image.js");
+	 document.body.appendChild(new_element);
+	 var Image_reconds = getUrlById;
+	 var recodes = Image_reconds(id);
+	 
+	 
 Ext.define('questionanswers.model.QuestionanswersModel',{
 	extend : 'Ext.data.Model',
 	alias : 'widget.questionanswersModel',
@@ -43,6 +51,7 @@ Ext.define('questionanswers.model.QuestionanswersModel',{
 		sortable : true
 	} ]
 });
+
 var qaJsonDataGet = Ext.util.JSON.decode(server_context + '/questionanswers/image/' + id + '.json');
 Ext.define('questionanswers.store.QuestionanswersStore', {
 	extend : 'Ext.data.Store',

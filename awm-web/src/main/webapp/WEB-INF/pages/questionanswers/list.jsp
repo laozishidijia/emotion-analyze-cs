@@ -42,6 +42,15 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/questionanswers/app/qa.js"></script>
 <body>
+<script type="text/javascript">
+window.onload = function(){
+	$("#search-btn").click(function() {
+		var imgId = $("#keyword").val();
+		 getqaDataBy(imgId);
+	});
+};
+</script>
+
 <div class="container">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Image Id"
@@ -50,9 +59,6 @@
 					<span class="glyphicon glyphicon-search"></span>
 				</button>
 			</span>
-		</div>
-		<div align="center" id="imgDiv">
-			<img alt="center" src="https://cs.stanford.edu/people/rak248/VG_100K_2/1.jpg" id="imgView">
 		</div>
 	</div>
 </body>

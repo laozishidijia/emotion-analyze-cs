@@ -38,7 +38,6 @@ window.onload = function(){
 	$("#search-btn").click(function() {
 		var imgId = $("#keyword").val();
 		var getUrl=getUrlById;
-		getUrl(imgId);
 	});
 };
 </script>
