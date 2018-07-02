@@ -54,9 +54,151 @@
 			</div>
 		</div>
 	</nav>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div class="container">
-	
+		<h1 class="wordfont">The modules that you can manipulate</h1>
+		<div class="row">
+			<div class="panel panel-info" id="panelfont">
+				<div class="panel-heading">
+					<div id="navbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li><h4>Image</h4></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-sub pull-right">
+							<li><a><span class="glyphicon glyphicon-triangle-right"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel-body">
+
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-info" id="panelfont">
+					<div class="panel-heading">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h4>Image</h4></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-sub pull-right">
+								<li><a><span class="glyphicon glyphicon-triangle-right"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<p>使用 .panel-heading class 可以很简单地向面板添加标题容器。</p>
+						<hr>
+						<p>使用带有.panel-title class 的h1-h6来添加预定义样式的标题。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-info" id="panelfont">
+					<div class="panel-heading">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h4>Question And Answer</h4></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-sub pull-right">
+								<li><a><span class="glyphicon glyphicon-triangle-right"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<p>使用 .panel-heading class 可以很简单地向面板添加标题容器。</p>
+						<hr>
+						<p>使用带有.panel-title class 的h1-h6来添加预定义样式的标题。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6" id="panelfont">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h4>Image</h4></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-sub pull-right">
+								<li><a><span class="glyphicon glyphicon-triangle-right"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<p>使用 .panel-heading class 可以很简单地向面板添加标题容器。</p>
+						<hr>
+						<p>使用带有.panel-title class 的h1-h6来添加预定义样式的标题。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-info" id="panelfont">
+					<div class="panel-heading">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h4>Question And Answer</h4></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-sub pull-right">
+								<li><a><span class="glyphicon glyphicon-triangle-right"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<p>使用 .panel-heading class 可以很简单地向面板添加标题容器。</p>
+						<hr>
+						<p>使用带有.panel-title class 的h1-h6来添加预定义样式的标题。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-info" id="panelfont">
+					<div class="panel-heading">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h4>Image</h4></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-sub pull-right">
+								<li><a><span class="glyphicon glyphicon-triangle-right"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<p>使用 .panel-heading class 可以很简单地向面板添加标题容器。</p>
+						<hr>
+						<p>使用带有.panel-title class 的h1-h6来添加预定义样式的标题。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-info" id="panelfont">
+					<div class="panel-heading">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h4>Question And Answer</h4></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-sub pull-right">
+								<li><a><span class="glyphicon glyphicon-triangle-right"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<p>使用 .panel-heading class 可以很简单地向面板添加标题容器。</p>
+						<hr>
+						<p>使用带有.panel-title class 的h1-h6来添加预定义样式的标题。</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
 
 	<!-- 背景 -->
 	<div class="backstretch"

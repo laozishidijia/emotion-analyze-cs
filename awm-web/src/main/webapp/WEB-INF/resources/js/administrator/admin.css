@@ -2,3 +2,9 @@
        background: no-repeat center;
        background-size:contain;
 }
+.wordfont{
+	color:#FFFFFF;
+}
+#panelfont{
+	opacity:0.3;
+}
