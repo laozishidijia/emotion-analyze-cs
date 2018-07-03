@@ -103,7 +103,7 @@ function submit(){
 		</div>
 	</div>
 	<div class="backstretch"
-		style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 215px; width: 1168px; z-index: -999999; position: fixed;">
+		style="left: 0px; top: 0px; margin: 0px; padding: 0px; height: 215px; width: 1168px; z-index: -999999; position: fixed;">
 		<img
 			style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 2000px; height: 1500px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -395.333px;"
 			src="<%=basePath%>/resources/js/administrator/assets/img/backgrounds/1.jpg">
