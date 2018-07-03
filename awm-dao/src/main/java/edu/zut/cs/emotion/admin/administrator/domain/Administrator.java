@@ -17,6 +17,17 @@ public class Administrator extends BaseEntity{
 	
 	@Column(name="PASSWORD")
 	String password;
+	
+	@Column(name="LOGIN_TIMES")
+	int logintimes;
+
+	public int getLogintimes() {
+		return logintimes;
+	}
+
+	public void setLogintimes(int logintimes) {
+		this.logintimes = logintimes;
+	}
 
 	public String getUsername() {
 		return username;
