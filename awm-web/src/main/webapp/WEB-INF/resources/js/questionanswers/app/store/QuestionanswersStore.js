@@ -1,5 +1,4 @@
 var pageSize = 20;
-
 Ext.define('questionanswers.store.QuestionanswersStore', {
 	extend : 'Ext.data.Store',
 	alias : 'widget.questionanswersStore',
