@@ -20,10 +20,7 @@ window.onload=function () {
                        "<td>" + msg.url + "</td>" +
                        "</tr>";
         	   image.innerHTML=image_content;
-           },
-       	failure:function(){
-       		continue;
-       	}
+           }
        
        });
 		  }
@@ -48,10 +45,7 @@ window.onload=function () {
                         "<td>" + msg.answer + "</td>" +
                         "</tr>";
                     	question.innerHTML=question_content;
-            },
-        	failure:function(){
-        		continue;
-        	}
+            }
         
         });
 		  }
@@ -77,10 +71,7 @@ window.onload=function () {
                         "<td>" + msg.y + "</td>" +
                         "</tr>";
             			region.innerHTML=region_content;
-            },
-        	failure:function(){
-        		continue;
-        	}
+            }
         });
 		  }
 	  }else{
@@ -105,10 +96,7 @@ window.onload=function () {
                         "<td>" + msg.y + "</td>" +
                         "</tr>";
             	object.innerHTML=object_content;
-            },
-        	failure:function(){
-        		continue;
-        	}
+            }
         });
 		  }
 	  }else{
