@@ -37,7 +37,6 @@ public class MainController {
 	
     @RequestMapping("/index")
     public String index() {
-    	System.out.println(this.imageManager.findByImage_id((long) 1).getId());
         return "main/index";
     }
 

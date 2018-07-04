@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -86,7 +89,8 @@ public abstract class GenericController<T extends BaseEntity, PK extends Seriali
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public T getOne(@PathVariable PK id) {
+	public T getOne(@PathVariable PK id,HttpServletRequest request, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*"); 
 		return this.manager.findById(id);
 	}
 
