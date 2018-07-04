@@ -90,39 +90,49 @@
 	<br>
 	<br>
 	<h1 class="wordfont">The modules that you can manipulate</h1>
+	<br>
+	<br>
+	<br>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-7">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h5>IMAGE</h5>
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h5>IMAGE Information</h5></li>
+							</ul>
+							<ul class="nav navbar-nav  pull-right">
+								<li><a href="/awm-web/image/index.html"><span
+										class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+							</ul>
+						</div>
 					</div>
 					<div class="panel-body">
 						<div class="table-responsive">
 							<table class="table table-hover dashboard-task-infos">
 								<thead>
-									<tr>
-										<th>#</th>
-										<th>Task</th>
-										<th>Status</th>
-										<th>Manager</th>
-										<th>Progress</th>
+									<tr class="active">
+										<th>ID</th>
+										<th>IMAGE_ID</th>
+										<th>HEIGHT</th>
+										<th>WIDTH</th>
+										<th>URL</th>
 									</tr>
 								</thead>
-								<tbody>
-
+								<tbody id="image">
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-5">
 				<div class="panel panel-warning">
 					<div class="panel-heading">
 						<div id="navbar" class="collapse navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li><h4>Question And Answer Information</h4></li>
+								<li><h5>Question And Answer INFORAMTION</h5></li>
 							</ul>
 							<ul class="nav navbar-nav  pull-right">
 								<li><a href="/awm-web/questionanswers/index.html"><span
@@ -151,9 +161,81 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-warning">
+					<div class="panel-heading">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h5>OBJECT INFORAMTION</h5></li>
+							</ul>
+							<ul class="nav navbar-nav  pull-right">
+								<li><a href="/awm-web/myObject/index.html"><span
+										class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="active">
+										<th>IMAGE_ID</th>
+										<th>NAME</th>
+										<th>W</th>
+										<th>X</th>
+										<th>Y</th>
+									</tr>
+								</thead>
+								<tbody id="object">
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><h5>REGION INFORAMTION</h5></li>
+							</ul>
+							<ul class="nav navbar-nav  pull-right">
+								<li><a href="/awm-web/region/index.html"><span
+										class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="active">
+										<th>REGION_ID</th>
+										<th>PHRASE</th>
+										<th>WIDHT</th>
+										<th>X</th>
+										<th>Y</th>
+									</tr>
+								</thead>
+								<tbody id="region">
+
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
 	</div>
-
-
 	<!-- 背景 -->
 	<div class="backstretch"
 		style="left: 0px; top: 0px; margin: 0px; padding: 0px; height: 215px; width: 1168px; z-index: -999999; position: fixed;">
