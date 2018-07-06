@@ -220,8 +220,6 @@
 									</tr>
 								</thead>
 								<tbody id="region">
-
-
 								</tbody>
 							</table>
 						</div>
@@ -229,23 +227,21 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-4">
+			
+			</div>
+		</div>
+		<!-- 背景 -->
+		<div class="backstretch"
+			style="left: 0px; top: 0px; margin: 0px; padding: 0px; height: 215px; width: 1168px; z-index: -999999; position: fixed;">
+			<img
+				style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 2000px; height: 1500px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -395.333px;"
+				src="<%=basePath%>/resources/js/administrator/assets/img/backgrounds/1.jpg">
+		</div>
 
-
-
-
-
-
-	</div>
-	<!-- 背景 -->
-	<div class="backstretch"
-		style="left: 0px; top: 0px; margin: 0px; padding: 0px; height: 215px; width: 1168px; z-index: -999999; position: fixed;">
-		<img
-			style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 2000px; height: 1500px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -395.333px;"
-			src="<%=basePath%>/resources/js/administrator/assets/img/backgrounds/1.jpg">
-	</div>
-
-	<script src="<%=basePath%>bootstrap/js/jquery-3.3.1.min.js"></script>
-	<script src="<%=basePath%>bootstrap/js/bootstrap.min.js"></script>
-	<script src="<%=basePath%>/resources/js/administrator/admin.js"></script>
+		<script src="<%=basePath%>bootstrap/js/jquery-3.3.1.min.js"></script>
+		<script src="<%=basePath%>bootstrap/js/bootstrap.min.js"></script>
+		<script src="<%=basePath%>/resources/js/administrator/admin.js"></script>
 </body>
 </html>
