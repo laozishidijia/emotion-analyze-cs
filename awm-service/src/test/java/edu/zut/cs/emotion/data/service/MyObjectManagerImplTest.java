@@ -106,6 +106,7 @@ public class MyObjectManagerImplTest extends GenericGenerator {
 					MyObject myObject = new MyObject();
 
 					myObject.setMerged_object_ids(merged_object_ids);
+					//从文件中获取各种数据，插入到数据库中
 					myObject.setH(h);
 					myObject.setW(w);
 					myObject.setX(x);
