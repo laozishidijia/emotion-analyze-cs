@@ -1,7 +1,5 @@
 package edu.zut.cs.emotion.awm.admin.administrator.web.spring.controller;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
