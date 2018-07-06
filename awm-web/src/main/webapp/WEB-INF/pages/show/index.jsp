@@ -5,6 +5,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 	String extjsPath = "http://202.196.37.91:8080/ext-4.2.1.883/";
+	String imagePath="http://202.196.37.91:8080/visualgenome/image/";
 %>
 <!DOCTYPE html>
 <html>
@@ -49,33 +50,26 @@
 			type : 'get',
 			success : function(data) {
 				console.log(data);
-				url = data['url'];
-				$("#a" + count)
-						.load(
-								url,
-								function() {
-									$("#a" + count).attr("href", url);
-									$("#img" + count).attr("src", url);
-									$("#a" + count).load(
-											location.href + " #a" + count
-													+ ">*", "");
-									$("#img" + count).load(
-											location.href + " #img" + count
-													+ ">*", "");
-									console.log(count);
-									count++;
-									id++;
-									if (count == 13)
-										count = 1;
-								});
+				url ="<%=imagePath%>"+data['image_id']+".jpg";
+				console.log(url);
+				$("#a" + count).attr("href", url);
+				$("#img" + count).attr("src", url);
+				$("#a" + count).load(location.href + " #a" + count + ">*", "");
+				$("#img" + count).load(location.href + " #img" + count + ">*",
+						"");
+				console.log(count);
+				count++;
+				id++;
+				if (count == 13)
+					count = 1;
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
-					console.log("error");
+				console.log("error");
 			}
 		});
 
 	}
-	setInterval(setImg, 10 * 1000);
+	setInterval(setImg,3*1000);
 </script>
 </head>
 <body>
