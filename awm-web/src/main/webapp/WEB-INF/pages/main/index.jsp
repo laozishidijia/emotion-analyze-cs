@@ -5,6 +5,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 	String extjsPath = "http://202.196.37.91:8080/ext-4.2.1.883/";
+	String imagePath="http://202.196.37.91:8080/visualgenome/image/";
 %>
 <!DOCTYPE html>
 <html>
@@ -30,49 +31,74 @@
 	var basePath = localObj.protocol + "//" + localObj.host + "/" + contextPath;
 	var server_context = basePath;
 </script>
-	
+
 </script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/image/app/Image.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/image/app/Image.js"></script>
 <script type="text/javascript">
-window.onload = function(){
-	$("#search-btn").click(function() {
-		var imgId = $("#keyword").val();
-		var getUrl=getUrlById;
-	});
-};
+	window.onload = function() {
+		$("#search-btn").click(function() {
+			var imgId = $("#keyword").val();
+			var getUrl = getUrlById;
+		});
+	};
+</script>
+<script type="text/javascript">
+	
+	var id = 141327;
+	var url;
+	function setImg() {
+		 url = server_context + '/image/' + id + '.json';
+		//步骤一:创建异步对象
+		var ajax = new XMLHttpRequest();
+		//步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
+		ajax.open('get',url);
+		//步骤三:发送请求
+		ajax.send();
+		ajax.onreadystatechange = function () {
+		   if (ajax.readyState==4 &&ajax.status==200) {
+			 var record=ajax.responseText;
+			 var obj=JSON.parse(record);
+			 $("#imgView").attr("src","<%=imagePath%>"+obj.image_id+".jpg");
+			 console.log("<%=imagePath%>"+obj.image_id+".jpg");
+			 id++;
+			}
+		}
+	}
+	
+	setInterval(setImg,3*1000);
 </script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-				data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-					<a class="navbar-brand" href="#">Artificial Intelligence</a>
+				<a class="navbar-brand" href="#">Artificial Intelligence</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-sub pull-right">
+					<li><a href="#">Register</a></li>
+					<li><a href="/awm-web/administrator/index.html">Login</a></li>
+				</ul>
+			</div>
 		</div>
-		<div id="navbar" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.html">Home</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">About</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-sub pull-right">
-				<li><a href="#">Register</a></li>
-				<li><a href="/awm-web/administrator/index.html">Login</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
-<br>
-<br>
-<br>
-<br>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<br>
 	<!-- 搜索框 -->
 	<div class="container">
 		<div class="input-group">
@@ -83,8 +109,8 @@ window.onload = function(){
 				</button>
 			</span>
 		</div>
-		<div align="center" id="imgDiv">
-			<img alt="center" src="https://cs.stanford.edu/people/rak248/VG_100K_2/1.jpg" id="imgView">
+		<div align="center">
+			<img id="imgView" src="http://202.196.37.91:8080/visualgenome/image/1.jpg">
 		</div>
 	</div>
 </body>
