@@ -1,10 +1,13 @@
 package edu.zut.cs.emotion.awm.admin.qa.web.spring.controller;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.zut.cs.emotion.admin.questionanswers.domain.QuAnswers;
 import edu.zut.cs.emotion.base.web.spring.controller.GenericController;
@@ -31,11 +34,16 @@ public class QuestionAndAnswerController extends GenericController<QuAnswers,Lon
 		String result = "/questionanswers/list";
 		return result;
 	}
-//	@RequestMapping(value = "/image/{id}", method = RequestMethod.GET,  produces = "application/json", consumes = "application/json")
-//	public List<QuAnswers> QAList(@PathVariable Long image_id) {
-//		List<QuAnswers> qaList = qaManager.findByImage_id(image_id);
-//		System.err.println(qaList.size());
-//		return qaList;
-//	}
-
+	@RequestMapping(value = "/qa/{question_id}", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public QuAnswers getOne(@PathVariable Long question_id) {
+		return qaManager.findByQuAnswers_id(question_id);
+	}
+	@RequestMapping(value = "/image/{image_id}", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public List<QuAnswers> getList(@PathVariable Long image_id) {
+		List<QuAnswers> qaList = new ArrayList<QuAnswers>();
+		qaList= qaManager.findByImage_id(image_id);
+		return qaList;
+	}
 }

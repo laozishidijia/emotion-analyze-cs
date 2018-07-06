@@ -89,8 +89,7 @@ public abstract class GenericController<T extends BaseEntity, PK extends Seriali
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public T getOne(@PathVariable PK id,HttpServletRequest request, HttpServletResponse response) {
-		response.setHeader("Access-Control-Allow-Origin", "*"); 
+	public T getOne(@PathVariable PK id) {
 		return this.manager.findById(id);
 	}
 
