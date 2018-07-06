@@ -69,6 +69,7 @@ public class AttributesManagerImplTest extends GenericGenerator{
 				int y=job1.getInt("y");
 				int x=job1.getInt("x"); 
 				Attributes attributes1=new Attributes();
+				//从文件中获取各种数据，插入到数据库中
 				attributes1.setH(h);
 				attributes1.setObject_id(object_id);
 				attributes1.setW(w);

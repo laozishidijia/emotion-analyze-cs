@@ -54,6 +54,7 @@ public class RegionManagerImplTest extends GenericGenerator{
 				Region region=new Region();
 				JSONObject temRegion=(JSONObject) regions.get(j);
 				region.setRegion_id(temRegion.getLong("region_id"));
+				//从文件中获取各种数据，插入到数据库中
 				region.setWidth(temRegion.getInt("width"));
 				region.setHeight(temRegion.getInt("height"));
 				region.setPhrase(temRegion.getString("phrase"));
@@ -105,6 +106,7 @@ public class RegionManagerImplTest extends GenericGenerator{
 						myObject=new MyObject();
 						myObject.setName(temObj.getString("name"));
 						myObject.setObject_id(temObj.getLong("object_id"));
+						//从文件中获取各种数据，插入到数据库中
 						myObject.setH(temObj.getInt("h"));
 						myObject.setW(temObj.getInt("w"));
 						myObject.setY(temObj.getInt("y"));
@@ -143,6 +145,7 @@ public class RegionManagerImplTest extends GenericGenerator{
 						Region region=new Region();
 						JSONObject temRegion=(JSONObject) regions.get(j);
 						region.setRegion_id(temRegion.getLong("region_id"));
+						//从文件中获取各种数据，插入到数据库中
 						region.setWidth(temRegion.getInt("width"));
 						region.setHeight(temRegion.getInt("height"));
 						region.setPhrase(temRegion.getString("phrase"));
@@ -189,6 +192,7 @@ public class RegionManagerImplTest extends GenericGenerator{
 							MyObject myObject=new MyObject();
 							myObject.setName(temObj.getString("name"));
 							myObject.setObject_id(temObj.getLong("object_id"));
+							//从文件中获取各种数据，插入到数据库中
 							myObject.setH(temObj.getInt("h"));
 							myObject.setW(temObj.getInt("w"));
 							myObject.setY(temObj.getInt("y"));

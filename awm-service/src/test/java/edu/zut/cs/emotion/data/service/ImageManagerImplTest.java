@@ -54,6 +54,7 @@ public class ImageManagerImplTest extends GenericGenerator{
 						flickr_id=job.getLong("flickr_id");
 					}
 					Image image=new Image();
+					//从文件中获取各种数据，插入到数据库中
 					image.setCoco_id(coco_id);
 					image.setFlickr_id(flickr_id);
 					image.setWidth(width);

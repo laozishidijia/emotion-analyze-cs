@@ -21,6 +21,7 @@ public class AdministratorManagerImplTest extends GenericGenerator{
 	@Test
 	public void addAdmin()
 	{
+		//构造管理员用户
 		String key="98k";
 		Administrator admin1 = new Administrator();
 		admin1.setUsername("杜清清");

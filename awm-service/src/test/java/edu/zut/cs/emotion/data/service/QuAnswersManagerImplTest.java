@@ -34,15 +34,17 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 	@Test
 	public void insertdata ()throws IOException
 	{
+		//--------创建问答集合
 		List<QuAnswers> QuanswersArrylist=new ArrayList<QuAnswers>();
 		String imagesQaId="";
-		
+		//--------遍历json文件
 		for(int i=0;i<=442;i++)
 		{
 			File file=new File("E:\\Visualgenome\\question_answers\\spilt\\after_deal\\"+i+".json");
 			
 			String Str=FileUtils.readFileToString(file, "utf-8");
 			try {
+				//-------拆分json对象
 				String[] QuanswersArrylist1=Str.split("\"id\"");
 				for(String str :QuanswersArrylist1 ) {
 					if(str.length()>1&&str.endsWith(", {")) {
@@ -51,6 +53,7 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 						//---------构建json对象
 						JSONObject jObj = new JSONObject(Quan);
 						JSONArray  jOba = jObj.getJSONArray( "qas");
+						//------遍历json数组
 						for(int j=0;j<jOba.length();j++)
 						{
 							JSONObject  jObj1=jOba.getJSONObject(j);
@@ -59,6 +62,7 @@ public class QuAnswersManagerImplTest extends GenericGenerator{
 							Quanswers.setImage_id(jObj1.getLong("image_id"));
 							Quanswers.setQa_id(jObj1.getLong("qa_id"));
 							Quanswers.setAnswer(jObj1.getString("answer"));
+							//-------关联Image对象
 						Image temImage = this.imageManager.findByImage_id(jObj1.getLong("image_id"));
 						imagesQaId = imagesQaId  +jObj1.getLong("qa_id")+",";
 						 imageManager.updateQA_ids(imagesQaId, jObj1.getLong("image_id"));
