@@ -3,7 +3,6 @@ window.onload=function () {
 	var image = window.document.getElementById("image");
 	var region = window.document.getElementById("region");
 	var object = window.document.getElementById("object");
-	
 	 if(image){
 		  var image_content="";
 		  for(var i=141315;i<=141321;i++ ){

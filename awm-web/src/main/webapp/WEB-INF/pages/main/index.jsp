@@ -5,7 +5,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 	String extjsPath = "http://202.196.37.91:8080/ext-4.2.1.883/";
-	String imagePath="http://202.196.37.91:8080/visualgenome/image/";
+	String imagePath = "http://202.196.37.91:8080/visualgenome/image/";
 %>
 <!DOCTYPE html>
 <html>
@@ -35,6 +35,11 @@
 </script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/image/app/Image.js"></script>
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/index/index.js"></script>
+
+
 <script type="text/javascript">
 	window.onload = function() {
 		$("#search-btn").click(function() {
@@ -44,7 +49,6 @@
 	};
 </script>
 <script type="text/javascript">
-	
 	var id = 141327;
 	var url;
 	function setImg() {
@@ -60,13 +64,14 @@
 			 var record=ajax.responseText;
 			 var obj=JSON.parse(record);
 			 $("#imgView").attr("src","<%=imagePath%>"+obj.image_id+".jpg");
-			 console.log("<%=imagePath%>"+obj.image_id+".jpg");
-			 id++;
+			 console.log("<%=imagePath%>" + obj.image_id + ".jpg");
+			 var imageId = obj.image_id;
+			 getquestion(imageId);
+				id++;
 			}
 		}
 	}
-	
-	setInterval(setImg,3*1000);
+	setInterval(setImg, 10 * 1000);
 </script>
 </head>
 <body>
@@ -109,8 +114,46 @@
 				</button>
 			</span>
 		</div>
-		<div align="center">
-			<img id="imgView" src="http://202.196.37.91:8080/visualgenome/image/1.jpg">
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<p>Question And Answer</p>
+					</div>
+					<div class="panel-body">
+						<button class="btn btn-primary" type="button"
+							data-toggle="collapse" data-target="#question"
+							aria-expanded="false" aria-controls="question">Button
+							with data-target</button>
+						<div class="collapse" id="question">
+							<div class="table-responsive">
+								<table class="table table-hover dashboard-task-infos">
+									<thead>
+										<tr class="active">
+											<th>question</th>
+											<th>answer</th>
+										</tr>
+									</thead>
+									<tbody id="questionTable">
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<a href="#" class="thumbnail"> <img id="imgView"
+							src="http://202.196.37.91:8080/visualgenome/image/1.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
