@@ -73,7 +73,7 @@
 			}
 		}
 	}
-	setInterval(setImg, 3 * 1000);
+	setInterval(setImg, 6 * 1000);
 </script>
 </head>
 <body>
