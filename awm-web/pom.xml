@@ -10,11 +10,6 @@
 	<artifactId>awm-web</artifactId>
 	<packaging>war</packaging>
 	<dependencies>
-		<dependency>
-			<groupId>edu.zut.cs.emotion</groupId>
-			<artifactId>awm-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -37,20 +32,25 @@
 			<artifactId>itext</artifactId>
 			<version>2.1.7</version>
 		</dependency>
+		<dependency>
+			<groupId>edu.zut.cs.emotion</groupId>
+			<artifactId>awm-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.10.v20180503</version>
-				<configuration>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
-					<webApp>
-						<contextPath>/awm-web</contextPath>
-					</webApp>
-				</configuration>
-			</plugin>
-		</plugins>
+		 <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.10.v20180503</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/awm-web</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 </project>
