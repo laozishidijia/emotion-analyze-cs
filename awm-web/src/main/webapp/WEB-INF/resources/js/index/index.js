@@ -1,7 +1,7 @@
 function getquestion(imageId) {
 	// 对应图片的问答数据
 	var question_content = "";
-	var question = window.document.getElementById("questionTable");
+	var question =document.getElementById("questionTable");
 		$.ajax({
 			type : "get",
 			dataType : "json",
@@ -16,7 +16,6 @@ function getquestion(imageId) {
 						"</tr>";
 					question.innerHTML = question_content;
 					}
-				
 			}
 		});
 }

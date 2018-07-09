@@ -49,7 +49,7 @@
 	};
 </script>
 <script type="text/javascript">
-	var id = 141327;
+	var id = 141315;
 	var url;
 	function setImg() {
 		 url = server_context + '/image/' + id + '.json';
@@ -65,13 +65,15 @@
 			 var obj=JSON.parse(record);
 			 $("#imgView").attr("src","<%=imagePath%>"+obj.image_id+".jpg");
 			 console.log("<%=imagePath%>" + obj.image_id + ".jpg");
-			 var imageId = obj.image_id;
-			 getquestion(imageId);
+				var imageId = obj.image_id;
+				console.log("-----------------")
+				console.log(imageId)
+				getquestion(imageId);
 				id++;
 			}
 		}
 	}
-	setInterval(setImg, 10 * 1000);
+	setInterval(setImg, 3 * 1000);
 </script>
 </head>
 <body>
@@ -106,6 +108,7 @@
 	<br>
 	<!-- 搜索框 -->
 	<div class="container">
+	<h1>You can search by image ID</h1>
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Image Id"
 				id="keyword"> <span class="input-group-btn">
@@ -115,8 +118,19 @@
 			</span>
 		</div>
 	</div>
+
 	<div class="container">
+		<h1>Data details are as follows</h1>
 		<div class="row">
+			<div class="col-xs-6">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<a href="#" class="thumbnail"> <img id="imgView"
+							src="http://202.196.37.91:8080/visualgenome/image/1.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
 			<div class="col-md-6">
 				<div class="panel panel-info">
 					<div class="panel-heading">
@@ -125,8 +139,8 @@
 					<div class="panel-body">
 						<button class="btn btn-primary" type="button"
 							data-toggle="collapse" data-target="#question"
-							aria-expanded="false" aria-controls="question">Button
-							with data-target</button>
+							aria-expanded="false" aria-controls="question">Open/Close
+							QuestionAndAnswer</button>
 						<div class="collapse" id="question">
 							<div class="table-responsive">
 								<table class="table table-hover dashboard-task-infos">
@@ -145,15 +159,45 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-6">
-				<div class="panel panel-info">
-					<div class="panel-body">
-						<a href="#" class="thumbnail"> <img id="imgView"
-							src="http://202.196.37.91:8080/visualgenome/image/1.jpg">
-						</a>
+		</div>
+		<div class="row">
+			<div class="col-md-7">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<p>RelationShip</p>
 					</div>
+					<div class="panel-body">This is the objects relationship</div>
+				</div>
+
+
+			</div>
+			<div class="col-md-5">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<p>Objects</p>
+					</div>
+					<div class="panel-body">This is the objects</div>
 				</div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="panel panel-warning">
+					<div class="panel-heading">
+						<p>Scenes</p>
+					</div>
+					<div class="panel-body">This is the scenes</div>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<p>Region</p>
+					</div>
+					<div class="panel-body">This is the objects region</div>
+				</div>
+			</div>
+		
 		</div>
 	</div>
 </body>
