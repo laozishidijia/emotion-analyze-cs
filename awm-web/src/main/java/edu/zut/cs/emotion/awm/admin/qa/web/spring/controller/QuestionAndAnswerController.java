@@ -34,11 +34,13 @@ public class QuestionAndAnswerController extends GenericController<QuAnswers,Lon
 		String result = "/questionanswers/list";
 		return result;
 	}
+	//通过question_id请求json数据
 	@RequestMapping(value = "/qa/{question_id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public QuAnswers getOne(@PathVariable Long question_id) {
 		return qaManager.findByQuAnswers_id(question_id);
 	}
+	//通过/image/image_id.json的请求方式返回image_id的所有question and answer
 	@RequestMapping(value = "/image/{image_id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public List<QuAnswers> getList(@PathVariable Long image_id) {
