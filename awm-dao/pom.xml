@@ -7,8 +7,6 @@
   </parent>
   <artifactId>awm-dao</artifactId>
  
-  
-  
   <dependencies>
   	<dependency>
   		<groupId>edu.zut.cs.emotion</groupId>
