@@ -25,7 +25,7 @@ public class AdministratorController extends GenericController<Administrator, Lo
 		this.administratorManager = administratorManager;
 		this.manager = this.administratorManager;
 	}
-
+	//依据session判断登入状态
 	@RequestMapping(value = "/index.html")
 	public String index(HttpServletRequest request) {
 		if (request.getSession().getAttribute("username") == null) {
@@ -34,7 +34,7 @@ public class AdministratorController extends GenericController<Administrator, Lo
 			return "/administrator/index";
 		}
 	}
-
+	
 	@RequestMapping(value = "/login.html", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request) {
 		ModelAndView mov = new ModelAndView();
@@ -43,10 +43,12 @@ public class AdministratorController extends GenericController<Administrator, Lo
 		String key = "98k";
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		//使用MD5加密密码。
 		String encodedpassword = DigestUtils.md5Hex(password + key);
 		Administrator admin = administratorManager.findByUsername(username);
 		if (admin.getPassword().equals(encodedpassword)) {
 			int login_times = admin.getLogintimes();
+			//设置session的值
 			session.setAttribute("username", username);
 			session.setAttribute("password", encodedpassword);
 			session.setAttribute("logintimes", login_times+1);
